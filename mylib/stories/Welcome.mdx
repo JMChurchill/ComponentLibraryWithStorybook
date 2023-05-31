@@ -1,0 +1,68 @@
+import designTokenDiagramImage from './images/design.token.graphic.svg';
+
+# Welcome
+
+This storybook is used as a template for useful storybook features that we'll utilise when creating the documentation for the UI library.
+
+I've found a good example project that uses the majority of the storybook features we can use as [insperation](https://metamask.github.io/metamask-storybook/?path=/docs/getting-started-introduction--docs
+).
+## What's this page?
+This is a storybook markdown page.
+It can be used to create more complex looking documention. The function of a mdx page is to enable us to have greater control over our documentions look and feel compared to autodocs.
+
+## Main MDX Features
+What can MDX do that markdown cannot?
+### Displaying Code
+
+#### JSX
+
+```jsx
+import React from 'react';
+import MyComponent from '.';
+
+export default {
+  title: 'Components/UI/MyComponent', // title should follow the folder structure location of the component. Don't use spaces.
+};
+
+export const DefaultStory = () => <MyComponent />;
+
+DefaultStory.storyName = 'Default';
+```
+
+#### HTML
+```html
+<h1>Title</h1>
+<p>wors</p>
+```
+#### CSS
+```css
+.conatiner{
+    backgroundColor: red
+}
+```
+
+### Rendering custom html
+<div style={{
+    textAlign: 'center',
+    backgroundColor: 'white',
+    padding: 32,
+    boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px"
+  }}
+>
+<h3>Custom Card</h3>
+</div>
+
+### Adding images
+This is how you add images to documention 👇🏼
+<div
+  style={{
+    textAlign: 'center',
+    backgroundColor: 'var(--color-background-alternative)',
+    padding: 32,
+  }}
+>
+  <img width="80%" src={designTokenDiagramImage} />
+</div>
+
+<br />
+<br />

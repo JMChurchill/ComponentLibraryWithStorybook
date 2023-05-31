@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-text-base: black;
+    --color-text-secondary: hsl(0, 0%, 20%);
+    --color-primary: hsl(350, 79%, 57%);
+    --color-primary-transparent: hsla(350, 79%, 57%, 0.7);
+    --color-primary-dark: hsl(350, 79%, 47%);
+    --color-page-background: rgb(247, 247, 247);
+    --color-page-forground: white;
+    --color-page-forground-hover: rgb(243, 243, 243);
+    --color-page-forground-hover-hover: rgb(228, 228, 228);
+    --color-button-text: white;
+  }
+  .theme-dark {
+    --color-text-base: #ffffff;
+    --color-text-secondary: hsl(0, 0%, 80%);
+    --color-page-background: #0d1117;
+    --color-page-forground: hsl(214, 22%, 13%);
+    --color-page-forground-hover: hsl(214, 21%, 20%);
+    --color-page-forground-hover-hover: hsl(214, 21%, 30%);
+    --color-button-text: black;
+  }
+}
+
+:root {
+  --background-color: rgb(240, 240, 240);
+  --forground-color: white;
+  --modal-z-index: 99;
+  --transition-speed: 250ms;
+
+  --primary-color: #e83a57 !important;
+  --border-radius: 0.25rem;
+  font-size: 15px;
+}
+
+h1 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--color-text-base);
+}
+h2 {
+  font-size: 1.3rem;
+  color: var(--color-text-base);
+}
+h3 {
+  font-size: 1.2rem;
+  color: var(--color-text-base);
+}
+h4 {
+  font-size: 1.1rem;
+  color: var(--color-text-base);
+}
+p,
+label {
+  color: var(--color-text-base);
+  font-size: 1rem;
+}

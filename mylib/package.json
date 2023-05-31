@@ -1,0 +1,94 @@
+{
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why",
+    "storybook": "storybook dev",
+    "build-storybook": "storybook build",
+    "tailwind": "npx tailwindcss -i ./tailwind-input.css -o ./dist/output.css --watch"
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "mylib",
+  "author": "Joshua Churchill",
+  "module": "dist/mylib.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/mylib.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/mylib.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.21.4",
+    "@size-limit/preset-small-lib": "^8.2.4",
+    "@storybook/addon-a11y": "^7.0.2",
+    "@storybook/addon-docs": "^7.0.2",
+    "@storybook/addon-essentials": "^7.0.2",
+    "@storybook/addon-links": "^7.0.2",
+    "@storybook/addon-mdx-gfm": "^7.0.2",
+    "@storybook/addons": "^7.0.2",
+    "@storybook/react": "^7.0.2",
+    "@storybook/react-webpack5": "^7.0.2",
+    "@tailwindcss/forms": "^0.5.3",
+    "@types/react": "^18.0.34",
+    "@types/react-dom": "^18.0.11",
+    "babel-loader": "^9.1.2",
+    "husky": "^8.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.8.0",
+    "react-is": "^18.2.0",
+    "size-limit": "^8.2.4",
+    "storybook": "^7.0.2",
+    "storybook-addon-react-router-v6": "^1.0.1",
+    "tailwindcss": "^3.3.1",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.5.0",
+    "typescript": "^3.9.10"
+  },
+  "dependencies": {
+    "@storybook/cli": "^7.0.2",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@types/react-datepicker": "^4.11.2",
+    "framer-motion": "^10.12.16",
+    "rc-slider": "^10.1.1",
+    "react-datepicker": "^4.12.0",
+    "react-hook-form": "^7.43.9",
+    "react-select": "^5.7.3"
+  }
+}
