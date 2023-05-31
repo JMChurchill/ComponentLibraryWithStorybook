@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
-import FilterSettings from "./FilterSettings";
+import React, { useState } from 'react';
+import { render, screen } from '@testing-library/react';
+import FilterSettings from './FilterSettings';
 
 type ItemType = {
   id: number;
@@ -9,8 +9,8 @@ type ItemType = {
 
 // const data1: ItemType[] = [{ name: "name1" }, { name: "name2" }];
 const data2: ItemType[] = [
-  { id: 1, name: "name1", test: "aa" },
-  { id: 2, name: "name2", test: "aa" },
+  { id: 1, name: 'name1', test: 'aa' },
+  { id: 2, name: 'name2', test: 'aa' },
 ];
 
 type FilterType = {
@@ -24,24 +24,23 @@ type FilterType = {
 };
 
 const MockFilterSettingsContainer = ({ data }: { data: any[] }) => {
-  const [theData, setTheData] = useState(data);
+  const [theData] = useState(data);
   const [filters, setFilters] = useState<FilterType[]>([]);
   const [isAdding, setIsAdding] = useState<boolean>(true);
   return (
     <FilterSettings
-      data={theData}
       fullData={theData}
       filters={filters}
       setFilters={setFilters}
       isAdding={isAdding}
       setIsAdding={setIsAdding}
-      noFilter={["id"]}
+      noFilter={['id']}
     />
   );
 };
 
-describe("Check if renders", () => {
-  it("one datapoint", async () => {
+describe('Check if renders', () => {
+  it('one datapoint', async () => {
     await render(<MockFilterSettingsContainer data={data2} />);
     const filterPointTitle = screen.getByText(/add filter/i);
 

@@ -165,7 +165,6 @@ const Filterbar = ({
       </div>
 
       <FilterSettings
-        data={data}
         fullData={fullData}
         isAdding={isAdding}
         setIsAdding={setIsAdding}

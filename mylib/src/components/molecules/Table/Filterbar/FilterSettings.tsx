@@ -19,7 +19,6 @@ type FilterSettingsProps = {
   filters: FilterType[] | undefined;
   setFilters: (a: FilterType[]) => void;
   fullData: any[];
-  data: any[];
   noFilter?: string[];
   aliases?: { [name: string]: string } | null;
 };
@@ -39,7 +38,6 @@ const FilterSettings = ({
   filters,
   setFilters,
   fullData,
-  data,
   noFilter = [],
   aliases = null,
 }: FilterSettingsProps) => {
@@ -175,7 +173,7 @@ const FilterSettings = ({
       }
     });
 
-    for (const [key, value] of Object.entries(currentFormVals)) {
+    for (const [key, _value] of Object.entries(currentFormVals)) {
       if (
         tempVals[key] === undefined // &&
         // Array.isArray(tempVals[key])
@@ -299,7 +297,7 @@ const FilterSettings = ({
                     label: item.label,
                     type: key,
                     key: `${key}`,
-                    action: (fullData: any[], key: string) =>
+                    action: (_fullData: any[], key: string) =>
                       alert(`${key} - ${value[1]}`),
                   });
                 }

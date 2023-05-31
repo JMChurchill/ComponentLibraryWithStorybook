@@ -2,7 +2,6 @@ import React from 'react';
 import { MdOutlineClose } from 'react-icons/md';
 
 const FilterItem = ({
-  id,
   name,
   onDelete,
 }: {
