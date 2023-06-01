@@ -73,18 +73,17 @@ const SideNav = ({ children, title, searchEndpoint = null }: SideNavProps) => {
         </h1>
       </div>
 
-      {searchEndpoint && (
-        <NavSearchbar
-          showNav={showNav}
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-          navigate={navigate}
-          searchEndpoint={searchEndpoint}
-        />
-      )}
-
       <nav>
         <ul className="flex flex-col gap-2">
+          {searchEndpoint && (
+            <NavSearchbar
+              showNav={showNav}
+              searchTerm={searchTerm}
+              setSearchTerm={setSearchTerm}
+              navigate={navigate}
+              searchEndpoint={searchEndpoint}
+            />
+          )}
           {Children.map(children, (child, i) => {
             if (React.isValidElement(child)) {
               return React.cloneElement(child as ReactElement<any>, {
