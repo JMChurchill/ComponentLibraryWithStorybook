@@ -29,6 +29,8 @@ module.exports = {
             'var(--color-page-forground-hover-hover)',
         },
         button: {
+          primary: 'var(--color-primary)',
+          secondary: 'transparent',
           green: 'rgb(22, 163, 74)',
           red: 'rgb(185, 28, 28)',
           orange: 'rgb(249, 115, 22)',
@@ -43,6 +45,8 @@ module.exports = {
           text: 'var(--color-text-base)',
         },
         button: {
+          primary: 'var(--color-primary)',
+          secondary: 'var(--color-primary)',
           green: 'rgb(22, 163, 74)',
           red: 'rgb(185, 28, 28)',
           orange: 'rgb(249, 115, 22)',

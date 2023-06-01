@@ -1,4 +1,5 @@
 import designTokenDiagramImage from './images/design.token.graphic.svg';
+import { ColorItem, ColorPalette } from '@storybook/blocks';
 
 # Welcome
 
@@ -66,3 +67,87 @@ This is how you add images to documention 👇🏼
 
 <br />
 <br />
+
+
+<ColorPalette>
+  <ColorItem
+    title="Primary"
+    subtitle=""
+    colors={{ 
+      "bg-skin-primary": 'hsl(350, 79%, 57%)', 
+      "bg-skin-primary-transparent": 'hsla(350, 79%, 57%, 0.7)', 
+      "bg-skin-primary-dark": 'hsl(350, 79%, 47%)' 
+      }}
+  />
+  <ColorItem 
+    title="Light" 
+    subtitle="" 
+    colors={{
+      "bg-skin-page-background": 'rgb(247, 247, 247)',
+      "bg-skin-page-forground": 'white',
+      "bg-skin-page-forground-hover": 'rgb(243, 243, 243)',
+      "bg-skin-page-forground-hover-hover": 'rgb(228, 228, 228)',
+    }}
+  />
+  <ColorItem
+    title="Dark"
+    subtitle=""
+    colors={{
+      "bg-skin-page-background": '#0d1117',
+      "bg-skin-page-forground": 'hsl(214, 22%, 13%)',
+      "bg-skin-page-forground-hover": 'hsl(214, 21%, 20%)',
+      "bg-skin-page-forground-hover-hover": 'hsl(214, 21%, 30%)',
+    }}
+  />
+    <ColorItem 
+    title="Text" 
+    subtitle="Light" 
+    colors={{
+      "text-skin-primary": 'hsl(350, 79%, 57%)',
+      "text-skin-base": 'black',
+      "text-skin-secondary": 'hsl(0, 0%, 20%)',
+    }}
+  />
+    <ColorItem 
+    title="Text" 
+    subtitle="Dark" 
+    colors={{
+      "text-skin-primary": 'hsl(350, 79%, 57%)',
+      "text-skin-base": '#ffffff',
+      "text-skin-secondary": 'hsl(0, 0%, 80%)',
+    }}
+  />
+    <ColorItem 
+    title="Button"
+    subtitle="Background" 
+    colors={{
+      "bg-button-base": 'hsl(350, 79%, 57%)',
+      "bg-button-inverted": 'transparent',
+      "bg-button-green": 'rgb(22, 163, 74)',
+      "bg-button-orange": 'rgb(249, 115, 22)',
+      "bg-button-red": 'rgb(185, 28, 28)',
+    }}
+  />
+    <ColorItem 
+    title="Button"
+    subtitle="Text" 
+    colors={{
+      "text-button-base": 'white',
+      "text-button-inverted": 'hsl(350, 79%, 57%)',
+      "text-button-green": 'rgb(22, 163, 74)',
+      "text-button-orange": 'rgb(249, 115, 22)',
+      "text-button-red": 'rgb(185, 28, 28)',
+    }}
+  />
+    <ColorItem 
+    title="Button"
+    subtitle="Border" 
+    colors={{
+      "border-button-base": 'hsl(350, 79%, 57%)',
+      "border-button-secondary": 'hsl(350, 79%, 57%)',
+      "border-button-green": 'rgb(22, 163, 74)',
+      "border-button-orange": 'rgb(249, 115, 22)',
+      "border-button-red": 'rgb(185, 28, 28)',
+    }}
+  />
+</ColorPalette>
