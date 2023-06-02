@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import ErrorMessage from '../../src/components/molecules/ErrorMessage';
+import ErrorMessage from '../../../src/components/molecules/ErrorMessage';
 
 const meta: Meta<typeof ErrorMessage> = {
   title: 'Components/molecules/ErrorMessage',

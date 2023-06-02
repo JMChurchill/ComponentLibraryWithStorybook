@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import Filterbar from '../../../src/components/molecules/Table/Filterbar/Filterbar';
+import Filterbar from '../../../../src/components/molecules/Table/Filterbar/Filterbar';
 
 const workers = [
   { id: '1234', name: 'John', age: 67, role: { id: 1, name: 'Binman' } },

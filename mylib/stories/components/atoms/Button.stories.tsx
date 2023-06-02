@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import Button from '../../src/components/atoms/Button';
+import Button from '../../../src/components/atoms/Button';
 import { IoAdd, IoPencil } from 'react-icons/io5';
 
 const meta: Meta<typeof Button> = {

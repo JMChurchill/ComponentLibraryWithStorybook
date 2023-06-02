@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import DateInput from '../../../src/components/atoms/Inputs/DateInput';
+import DateInput from '../../../../src/components/atoms/Inputs/DateInput';
 
 const meta: Meta<typeof DateInput> = {
   title: 'Components/atoms/Inputs/DateInput',

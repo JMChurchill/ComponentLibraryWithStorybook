@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import StagedProgressbar from '../../src/components/atoms/Progressbar/StagedProgressbar';
+import StagedProgressbar from '../../../src/components/atoms/Progressbar/StagedProgressbar';
 
 const meta: Meta<typeof StagedProgressbar> = {
   title: 'Components/atoms/StagedProgressbar',

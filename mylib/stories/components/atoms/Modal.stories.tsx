@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import Modal from '../../src/components/atoms/Modal/Modal';
-import Button from '../../src/components/atoms/Button';
+import Modal from '../../../src/components/atoms/Modal/Modal';
+import Button from '../../../src/components/atoms/Button';
 
 // https://prateeksurana.me/blog/react-component-library-using-storybook-7/
 // https://storybook.js.org/docs/react/writing-stories/introduction

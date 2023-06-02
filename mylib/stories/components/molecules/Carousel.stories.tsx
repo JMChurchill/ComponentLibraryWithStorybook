@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import Carousel from '../../src/components/molecules/Carousel';
+import Carousel from '../../../src/components/molecules/Carousel';
 
 const meta: Meta<typeof Carousel> = {
   title: 'Components/molecules/Caroucel',

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import SubLink from '../../../../src/components/atoms/Navbar/Links/SubLink';
+import SubLink from '../../../../../src/components/atoms/Navbar/Links/SubLink';
 import { withRouter } from 'storybook-addon-react-router-v6';
 
 const meta: Meta<typeof SubLink> = {

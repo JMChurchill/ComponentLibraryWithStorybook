@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import DropDownInput from '../../../src/components/atoms/Inputs/DropDownInput';
+import DropDownInput from '../../../../src/components/atoms/Inputs/DropDownInput';
 
 const meta: Meta<typeof DropDownInput> = {
   title: 'Components/atoms/Inputs/DropdownInput',

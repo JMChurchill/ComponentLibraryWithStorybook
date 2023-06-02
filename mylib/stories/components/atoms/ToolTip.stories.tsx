@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import ToolTip from '../../src/components/atoms/ToolTip/ToolTip';
+import ToolTip from '../../../src/components/atoms/ToolTip/ToolTip';
 
 const meta: Meta<typeof ToolTip> = {
   title: 'Components/atoms/ToolTip',

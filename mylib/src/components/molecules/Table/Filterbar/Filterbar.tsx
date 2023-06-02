@@ -4,7 +4,7 @@ import 'rc-slider/assets/index.css';
 import FilterItem from './FilterItem';
 import FilterSettings from './FilterSettings';
 import { MdClose, MdFilterList, MdSearch } from 'react-icons/md';
-import { useSessionStorage } from '../../../../Hooks/useStorage';
+// import { useSessionStorage } from '../../../../Hooks/useStorage';
 
 export type FilterType = {
   id: number;
@@ -37,7 +37,7 @@ type FilterbarProps = {
   searchable?: boolean;
 
   /** Update this to reset the filterbar - I've noticed in some scenarios you might want to reset the full dataset of the component after the rerender.*/
-  resetFilterbar: boolean;
+  resetFilterbar?: boolean;
 };
 
 /** A drop in filterbar that can be used to filter any dataset with minimal setup. */
@@ -50,11 +50,15 @@ const Filterbar = ({
   searchable = false,
   resetFilterbar = false,
 }: FilterbarProps) => {
+  useEffect(() => {
+    console.log(pageName);
+  }, []);
   const didMount = useRef(false);
 
   const [fullData, setFullData] = useState<any[]>([]);
 
-  const [filters, setFilters] = useSessionStorage<FilterType[]>(pageName, []);
+  // const [filters, setFilters] = useSessionStorage<FilterType[]>(pageName, []);
+  const [filters, setFilters] = useState<FilterType[]>([]);
   const [isAdding, setIsAdding] = useState<boolean>(false);
   const [isSearching, setIsSearching] = useState<boolean>(false);
 
@@ -76,7 +80,7 @@ const Filterbar = ({
     function destinct(value: any, index: any, self: any) {
       return self.indexOf(value) === index;
     }
-    const groupedMap = filters?.reduce(
+    const groupedMap = filters.reduce(
       (entryMap, e) =>
         entryMap.set(e.type, [...(entryMap.get(e.type) || []), e]),
       new Map()
@@ -125,7 +129,9 @@ const Filterbar = ({
 
   function onDeleteFilter(deletingFilter: FilterType) {
     setFilters(prevFilters => {
-      return prevFilters?.filter(filter => filter !== deletingFilter);
+      return prevFilters
+        ? prevFilters.filter(filter => filter !== deletingFilter)
+        : prevFilters;
     });
   }
 
@@ -135,14 +141,16 @@ const Filterbar = ({
       style={{ gridTemplateColumns: '1fr auto' }}
     >
       <div className="flex flex-row flex-wrap gap-1 text-skin-base">
-        {filters?.map((filter, i) => (
-          <FilterItem
-            key={i}
-            id={filter.id}
-            name={filter.name}
-            onDelete={() => onDeleteFilter(filter)}
-          />
-        ))}
+        <>
+          {filters.map((filter, i) => (
+            <FilterItem
+              key={i}
+              id={filter.id}
+              name={filter.name}
+              onDelete={() => onDeleteFilter(filter)}
+            />
+          ))}
+        </>
       </div>
       <div className="flex flex-row gap-2">
         <button

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import ExternalLink from '../../../../src/components/atoms/Navbar/Links/ExternalLink';
+import ExternalLink from '../../../../../src/components/atoms/Navbar/Links/ExternalLink';
 import { IoAdd } from 'react-icons/io5';
 
 const meta: Meta<typeof ExternalLink> = {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import UploadInput from '../../../src/components/atoms/Inputs/FileSelectInput/UploadInput';
+import UploadInput from '../../../../src/components/atoms/Inputs/FileSelectInput/UploadInput';
 
 const meta: Meta<typeof UploadInput> = {
   title: 'Components/atoms/Inputs/Upload',

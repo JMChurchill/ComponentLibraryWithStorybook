@@ -155,23 +155,24 @@ const FilterSettings = ({
 
     let tempVals: FormValues = {};
 
-    filters?.map(item => {
-      if (item.type === 'object') {
-        if (!Array.isArray(tempVals[item.key])) {
-          tempVals[item.key] = [{ value: item.value, label: item.label }];
-        } else {
-          tempVals[item.key].push({ value: item.value, label: item.label });
-        }
-      } else if (item.type === 'number') {
-        if (!Array.isArray(tempVals[item.key])) {
+    filters &&
+      filters.map(item => {
+        if (item.type === 'object') {
+          if (!Array.isArray(tempVals[item.key])) {
+            tempVals[item.key] = [{ value: item.value, label: item.label }];
+          } else {
+            tempVals[item.key].push({ value: item.value, label: item.label });
+          }
+        } else if (item.type === 'number') {
+          if (!Array.isArray(tempVals[item.key])) {
+            tempVals[item.key] = item.value;
+          }
+        } else if (item.type === 'date') {
+          tempVals[item.key] = item.value;
+        } else if (item.type === 'boolean') {
           tempVals[item.key] = item.value;
         }
-      } else if (item.type === 'date') {
-        tempVals[item.key] = item.value;
-      } else if (item.type === 'boolean') {
-        tempVals[item.key] = item.value;
-      }
-    });
+      });
 
     for (const [key, _value] of Object.entries(currentFormVals)) {
       if (
@@ -267,20 +268,28 @@ const FilterSettings = ({
                             i =>
                               i[key].filter(
                                 (j: any) =>
-                                  j?.value?.toLowerCase() ===
-                                    item.label.toLowerCase() ||
-                                  j?.name?.toLowerCase() ===
-                                    item.label.toLowerCase()
+                                  (j &&
+                                    j.value &&
+                                    j.value.toLowerCase() ===
+                                      item.label.toLowerCase()) ||
+                                  (j &&
+                                    j.name &&
+                                    j.name.toLowerCase() ===
+                                      item.label.toLowerCase())
                               ).length > 0
                           );
                         } else if (typeof fullData[0][key] === 'object') {
                           // Drill down through object to corrisponding values -> object < (array => (object.value or object.name)) more than one present
                           return fullData.filter(
                             i =>
-                              i[key]?.value?.toLowerCase() ===
-                                item.label.toLowerCase() ||
-                              i[key]?.name?.toLowerCase() ===
-                                item.label.toLowerCase()
+                              (i[key] &&
+                                i[key].value &&
+                                i[key].value.toLowerCase() ===
+                                  item.label.toLowerCase()) ||
+                              (i[key] &&
+                                i[key].name &&
+                                i[key].name.toLowerCase() ===
+                                  item.label.toLowerCase())
                           );
                         } else {
                           return fullData.filter(i => i[key] === item.label);
@@ -331,12 +340,14 @@ const FilterSettings = ({
   };
 
   function gernerateFilterComponents() {
-    const keys = [];
+    const keys: ReactNode[] = [];
 
     for (const [key, value] of Object.entries(filterPoints)) {
       const val = value as ItemType[];
       // let typ = typeof val[0].value;
-      const typ = typeof val.filter(v => v.value)[0]?.value;
+      const typ = val.filter(v => v.value)[0]
+        ? typeof val.filter(v => v.value)[0].value
+        : undefined;
       let numArr: number[] = [];
       if (typ === 'number') numArr = val.map(item => item.value);
       keys.push(
@@ -410,7 +421,8 @@ const FilterSettings = ({
           )}
           {typ === 'boolean' && <>{renderCheckboxed(val, key)}</>}
           {!(typ === 'string' || typ === 'boolean' || typ === 'number') &&
-            !(val.filter(v => v.value)[0]?.value instanceof Date) &&
+            !val.filter(v => v.value)[0] &&
+            !(val.filter(v => v.value)[0].value instanceof Date) &&
             typ === 'object' && (
               <>
                 <p>{getFilterLabel(key)}</p>
@@ -423,29 +435,30 @@ const FilterSettings = ({
                 />
               </>
             )}
-          {val.filter(v => v.value)[0]?.value instanceof Date && (
-            <DatePicker
-              title={key}
-              control={control}
-              errors={false}
-              name="lastActivity"
-              required={false}
-              selectsRange={true}
-              inline={false}
-              defaultStartDate={
-                Array.isArray(getValues('lastActivity')) &&
-                getValues('lastActivity').length === 2
-                  ? getValues('lastActivity')[0]
-                  : null
-              }
-              defaultEndDate={
-                Array.isArray(getValues('lastActivity')) &&
-                getValues('lastActivity').length === 2
-                  ? getValues('lastActivity')[1]
-                  : null
-              }
-            />
-          )}
+          {val.filter(v => v.value)[0] &&
+            val.filter(v => v.value)[0].value instanceof Date && (
+              <DatePicker
+                title={key}
+                control={control}
+                errors={false}
+                name="lastActivity"
+                required={false}
+                selectsRange={true}
+                inline={false}
+                defaultStartDate={
+                  Array.isArray(getValues('lastActivity')) &&
+                  getValues('lastActivity').length === 2
+                    ? getValues('lastActivity')[0]
+                    : null
+                }
+                defaultEndDate={
+                  Array.isArray(getValues('lastActivity')) &&
+                  getValues('lastActivity').length === 2
+                    ? getValues('lastActivity')[1]
+                    : null
+                }
+              />
+            )}
         </div>
       );
     }

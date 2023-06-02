@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import Card from '../../../src/components/atoms/Cards/Card';
+import Card from '../../../../src/components/atoms/Cards/Card';
 
 const meta: Meta<typeof Card> = {
   title: 'Components/atoms/Cards/Card',

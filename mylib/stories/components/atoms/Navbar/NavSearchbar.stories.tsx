@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import NavSearchbar from '../../../src/components/atoms/Navbar/NavSearchbar';
+import NavSearchbar from '../../../../src/components/atoms/Navbar/NavSearchbar';
 import { withRouter } from 'storybook-addon-react-router-v6';
 import { useNavigate } from 'react-router-dom';
 

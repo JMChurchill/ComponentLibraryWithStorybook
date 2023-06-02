@@ -16,7 +16,7 @@ type CarouselProps = {
   /** The format the images are in */
   imgFormat?: 'byte array' | 'url';
   /** An array of strings either byte arrays or urls determined by the "imgFormat" prop. Currently only one image format can be appliec */
-  images: string[] | null;
+  images: string[];
 };
 
 /** A carousel component that can create a caroucel from either byte array or url image format, specified in the props.
@@ -47,7 +47,7 @@ const Carousel = ({ images, imgFormat = 'byte array' }: CarouselProps) => {
 
   useEffect(() => {
     if (caroucelRef !== null) {
-      caroucelRef.current[currentIndex]?.scrollIntoView({
+      caroucelRef.current[currentIndex].scrollIntoView({
         behavior: 'smooth',
         inline: 'center',
         block: 'nearest',
@@ -161,15 +161,16 @@ const Carousel = ({ images, imgFormat = 'byte array' }: CarouselProps) => {
   return (
     <div className="relative">
       <div className="flex flex-row rounded-md h-[70vh] overflow-hidden relative">
-        {images?.map((image, i) => (
-          <>
-            <div className="relative overflow-hidden w-full max-h-full shrink-0 rounded-md">
-              <div
-                key={i}
-                ref={el => {
-                  el !== null && (caroucelRef.current[i] = el);
-                }}
-                className={`rounded-md shrink-0 w-full max-h-full h-full overflow-hidden relative transition-all duration-75
+        <>
+          {images.map((image, i) => (
+            <>
+              <div className="relative overflow-hidden w-full max-h-full shrink-0 rounded-md">
+                <div
+                  key={i}
+                  ref={el => {
+                    el !== null && (caroucelRef.current[i] = el);
+                  }}
+                  className={`rounded-md shrink-0 w-full max-h-full h-full overflow-hidden relative transition-all duration-75
                 translate-x-10 translate-y-20
                 ${
                   imageZoomSize > 100
@@ -178,57 +179,62 @@ const Carousel = ({ images, imgFormat = 'byte array' }: CarouselProps) => {
                       : 'cursor-grab'
                     : 'cursor-default'
                 }`}
-                style={{
-                  backgroundImage:
-                    imgFormat === 'byte array'
-                      ? `url(data:image/png;base64,${image})`
-                      : `url("${image}")`,
-                  backgroundPosition: '50% 50%',
-                  transformOrigin: '50% 50%',
-                  backgroundSize: 'contain',
-                  backgroundRepeat: 'no-repeat',
-                }}
-                onMouseDown={handleMouseDown}
-                onMouseUp={() => setIsDragging(false)}
-                onMouseMove={handleMouseMoveCapture}
-              ></div>
-            </div>
-          </>
-        ))}
+                  style={{
+                    backgroundImage:
+                      imgFormat === 'byte array'
+                        ? `url(data:image/png;base64,${image})`
+                        : `url("${image}")`,
+                    backgroundPosition: '50% 50%',
+                    transformOrigin: '50% 50%',
+                    backgroundSize: 'contain',
+                    backgroundRepeat: 'no-repeat',
+                  }}
+                  onMouseDown={handleMouseDown}
+                  onMouseUp={() => setIsDragging(false)}
+                  onMouseMove={handleMouseMoveCapture}
+                ></div>
+              </div>
+            </>
+          ))}
+        </>
       </div>
       {/* Floaters */}
       <div className="flex flex-row gap-2 absolute left-1/2 bottom-8 -translate-x-1/2 bg-black bg-opacity-25 px-2 py-1 rounded-md">
-        {images?.map((_img, i) => (
-          <div
-            className={` rounded-full h-2 w-2 hover:scale-125 cursor-pointer ${
-              i === currentIndex ? 'bg-skin-primary' : 'bg-white'
-            }`}
-            onClick={() => setCurrentIndex(i)}
-          ></div>
-        ))}
+        <>
+          {images.map((_img, i) => (
+            <div
+              className={` rounded-full h-2 w-2 hover:scale-125 cursor-pointer ${
+                i === currentIndex ? 'bg-skin-primary' : 'bg-white'
+              }`}
+              onClick={() => setCurrentIndex(i)}
+            ></div>
+          ))}
+        </>
       </div>
       <div className="absolute top-0 right-0 flex flex-col items-center justify-center gap-4 m-2">
-        {images && (
-          <ToolTip text="Download" position="left" nowrap>
-            {imgFormat === 'byte array' ? (
-              <a
-                download="Image.png"
-                href={`data:image/png;base64,${images[currentIndex]}`}
-                className="bg-black bg-opacity-50 text-white p-1.5 rounded-md hover:scale-125 cursor-pointer"
-              >
-                <MdDownload className="text-2xl" />
-              </a>
-            ) : (
-              <a
-                download
-                href={images[currentIndex]}
-                className="bg-black bg-opacity-50 text-white p-1.5 rounded-md hover:scale-125 cursor-pointer"
-              >
-                <MdDownload className="text-2xl" />
-              </a>
-            )}
-          </ToolTip>
-        )}
+        <>
+          {images && (
+            <ToolTip text="Download" position="left" nowrap>
+              {imgFormat === 'byte array' ? (
+                <a
+                  download="Image.png"
+                  href={`data:image/png;base64,${images[currentIndex]}`}
+                  className="bg-black bg-opacity-50 text-white p-1.5 rounded-md hover:scale-125 cursor-pointer"
+                >
+                  <MdDownload className="text-2xl" />
+                </a>
+              ) : (
+                <a
+                  download
+                  href={images[currentIndex]}
+                  className="bg-black bg-opacity-50 text-white p-1.5 rounded-md hover:scale-125 cursor-pointer"
+                >
+                  <MdDownload className="text-2xl" />
+                </a>
+              )}
+            </ToolTip>
+          )}
+        </>
         <div className="flex flex-col gap-4 items-center justify-center">
           <ToolTip text="Zoom In" position="left" nowrap>
             <button

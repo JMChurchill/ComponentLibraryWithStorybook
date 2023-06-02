@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import SeparatorLine from '../../../src/components/atoms/Navbar/SeparatorLine';
+import SeparatorLine from '../../../../src/components/atoms/Navbar/SeparatorLine';
 
 const meta: Meta<typeof SeparatorLine> = {
   title: 'Components/atoms/Navbar/SeparatorLine',

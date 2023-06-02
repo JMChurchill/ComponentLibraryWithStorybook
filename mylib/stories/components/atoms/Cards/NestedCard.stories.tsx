@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import NestedCard from '../../../src/components/atoms/Cards/NestedCard';
-import Card from '../../../src/components/atoms/Cards/Card';
+import NestedCard from '../../../../src/components/atoms/Cards/NestedCard';
+import Card from '../../../../src/components/atoms/Cards/Card';
 
 const meta: Meta<typeof NestedCard> = {
   title: 'Components/atoms/Cards/NestedCard',

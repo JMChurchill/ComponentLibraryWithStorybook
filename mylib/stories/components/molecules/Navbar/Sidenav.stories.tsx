@@ -2,11 +2,11 @@ import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { withRouter } from 'storybook-addon-react-router-v6';
 
-import SideNav from '../../../src/components/molecules/Navbar/SideNav';
-import SideNavLayout from '../../../src/Layouts/SideNavLayout';
-import MainLink from '../../../src/components/atoms/Navbar/Links/MainLink';
-import SeparatorLine from '../../../src/components/atoms/Navbar/SeparatorLine';
-import ExternalLink from '../../../src/components/atoms/Navbar/Links/ExternalLink';
+import SideNav from '../../../../src/components/molecules/Navbar/SideNav';
+import SideNavLayout from '../../../../src/Layouts/SideNavLayout';
+import MainLink from '../../../../src/components/atoms/Navbar/Links/MainLink';
+import SeparatorLine from '../../../../src/components/atoms/Navbar/SeparatorLine';
+import ExternalLink from '../../../../src/components/atoms/Navbar/Links/ExternalLink';
 import {
   MdDashboard,
   MdHome,

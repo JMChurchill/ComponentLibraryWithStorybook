@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import MainLink from '../../../../src/components/atoms/Navbar/Links/MainLink';
+import MainLink from '../../../../../src/components/atoms/Navbar/Links/MainLink';
 import { IoAdd } from 'react-icons/io5';
 import { withRouter } from 'storybook-addon-react-router-v6';
 
