@@ -1,9 +1,9 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import UploadInput from '../../../../src/components/atoms/Inputs/FileSelectInput/UploadInput';
+import UploadInput from '../../../../../src/components/atoms/Inputs/Hooked/FileSelectInput/UploadInput';
 
 const meta: Meta<typeof UploadInput> = {
-  title: 'Components/atoms/Inputs/Upload',
+  title: 'Components/atoms/Inputs/Hooked/Upload',
   component: UploadInput,
   argTypes: {},
 };
@@ -11,7 +11,6 @@ export default meta;
 
 type Story = StoryObj<typeof UploadInput>;
 
-// const [files, setFiles] = useState<File[]>([]);
 const regMock = (text, any) => {};
 export const Default: Story = {
   args: {

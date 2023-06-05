@@ -7,11 +7,11 @@ import Button from '../../../atoms/Button';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FilterType } from './Filterbar';
 // TODO: update to new version
-import DatePicker from '../../../atoms/Inputs/DatePicker';
+import DatePicker from '../../../atoms/Inputs/Hooked/DatePicker';
 import { toReadableDate } from '../../../../common/date';
 import { capitalizeFirstLetter } from '../../../../common/textFormating';
-import Checkbox from '../../../atoms/Inputs/Checkbox';
-import MultiSelect from '../../../atoms/Inputs/MultiSelect';
+import Checkbox from '../../../atoms/Inputs/Hooked/CheckboxHooked';
+import MultiSelect from '../../../atoms/Inputs/Hooked/MultiSelectHooked';
 
 type FilterSettingsProps = {
   isAdding: boolean;

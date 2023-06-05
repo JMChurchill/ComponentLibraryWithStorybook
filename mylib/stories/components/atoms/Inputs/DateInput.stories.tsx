@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import DateInput from '../../../../src/components/atoms/Inputs/DateInput';
 
@@ -11,32 +11,51 @@ export default meta;
 
 type Story = StoryObj<typeof DateInput>;
 
-// const [files, setFiles] = useState<File[]>([]);
-const regMock = (text, any) => {};
+const DateInputTemplate: Story = {
+  render: ({ name, max, min, ...args }) => {
+    const [value, setValue] = useState<string | undefined>();
+
+    return (
+      <div>
+        {max && <p>Max: {max}</p>}
+        {min && <p>Min: {min}</p>}
+        <p>Value: {value}</p>
+        <DateInput
+          name={name}
+          value={value}
+          setValue={setValue}
+          max={max}
+          min={min}
+        />
+      </div>
+    );
+  },
+};
+
 export const Default: Story = {
-  args: { register: regMock, required: false, name: 'dateSel' },
+  ...DateInputTemplate,
+  args: {
+    name: 'dateSel',
+  },
 };
 export const min: Story = {
+  ...DateInputTemplate,
   args: {
-    register: regMock,
-    required: false,
     name: 'dateSel',
     min: new Date().toISOString().slice(0, 10),
   },
 };
 export const max: Story = {
+  ...DateInputTemplate,
   args: {
-    register: regMock,
-    required: false,
     name: 'dateSel',
     max: new Date().toISOString().slice(0, 10),
   },
 };
 const yesterday = new Date();
 export const minMax: Story = {
+  ...DateInputTemplate,
   args: {
-    register: regMock,
-    required: false,
     name: 'dateSel',
     min: new Date(yesterday.setDate(yesterday.getDate() - 7))
       .toISOString()
@@ -45,5 +64,8 @@ export const minMax: Story = {
   },
 };
 export const Error: Story = {
-  args: { register: regMock, required: false, name: 'dateSel', error: true },
+  ...DateInputTemplate,
+  args: {
+    name: 'dateSel',
+  },
 };

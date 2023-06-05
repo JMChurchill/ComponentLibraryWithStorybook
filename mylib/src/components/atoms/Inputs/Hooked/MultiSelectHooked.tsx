@@ -10,7 +10,7 @@ type MultiSelectProps = {
   placeholder?: string;
   rules?: any;
 };
-const MultiSelect = ({
+const MultiSelectHooked = ({
   control,
   name,
   placeholder,
@@ -95,4 +95,4 @@ const MultiSelect = ({
   );
 };
 
-export default MultiSelect;
+export default MultiSelectHooked;

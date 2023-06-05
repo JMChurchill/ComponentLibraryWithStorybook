@@ -1,0 +1,12 @@
+.primary {
+  display: flex;
+  flex-direction: column;
+}
+.multiline {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.error {
+  color: red;
+}

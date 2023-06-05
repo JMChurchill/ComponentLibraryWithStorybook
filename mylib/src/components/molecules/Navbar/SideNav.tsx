@@ -27,8 +27,6 @@ const SideNav = ({ children, title, searchEndpoint = null }: SideNavProps) => {
   const [currentLink, setCurrentLink] = useState<number | null>();
 
   useEffect(() => {
-    console.log(location.pathname);
-
     Children.map(children, (child, i) => {
       if (React.isValidElement(child as ReactElement<any>) && child.props.to) {
         if (

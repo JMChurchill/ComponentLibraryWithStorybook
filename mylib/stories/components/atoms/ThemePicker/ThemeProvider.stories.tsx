@@ -1,12 +1,12 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import ThemeProvider from '../../../src/components/atoms/ThemeProvider';
-import Card from '../../../src/components/atoms/Cards/Card';
-import TextInput from '../../../src/components/atoms/Inputs/TextInput';
-import { Default } from './Inputs/TextInput.stories';
+import ThemeProvider from '../../../../src/components/atoms/ThemePicker/ThemeProvider';
+import Card from '../../../../src/components/atoms/Cards/Card';
+import TextInput from '../../../../src/components/atoms/Inputs/Hooked/TextInputHooked';
+import { Default } from '../Inputs/Hooked/TextInputHooked.stories';
 
 const meta: Meta<typeof ThemeProvider> = {
-  title: 'Components/atoms/ThemeProvider',
+  title: 'Components/atoms/ThemePicker/ThemeProvider',
   component: ThemeProvider,
 };
 export default meta;
@@ -27,7 +27,6 @@ export const CardContainingStuff: Story = {
 };
 export const DarkTextInput: Story = {
   args: {
-    theme: 'dark',
     children: (
       <Card>
         <h1>Dark Text input 👇🏼</h1>

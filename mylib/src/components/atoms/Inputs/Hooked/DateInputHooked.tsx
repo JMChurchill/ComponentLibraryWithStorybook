@@ -1,22 +1,26 @@
 import React, { HTMLAttributes } from 'react';
 
 interface Props extends HTMLAttributes<HTMLInputElement> {
-  /** Name of the input */
+  /** Name of registed item (ReactHookForm) */
   name: string;
-  value: string | undefined;
-  setValue: (value: string) => void;
+  /** Register the component to the form (ReactHookForm) */
+  register: any;
+  /** Is this field required? (ReactHookForm) */
+  required: any;
   /** Min date */
-  min?: string;
-  /** Max date */
-  max?: string;
+  min?: string | null;
+  max?: string | null;
+  /** Error object containing all errors from registered inputs */
+  error: any;
 }
 
 const DateInput = ({
   name,
-  min = undefined,
-  max = undefined,
-  value,
-  setValue,
+  register,
+  min = null,
+  max = null,
+  required,
+  error,
   ...props
 }: Props) => {
   return (
@@ -25,15 +29,15 @@ const DateInput = ({
         className={`bg-skin-page-background shadow-inner rounded-md px-2 py-1 text-skin-base outline-skin-primary
          focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-skin-primary focus:ring-0 focus:border-none transition-all duration-75`}
         type="date"
+        {...register(name, { required: required })}
         id="start"
         name="trip-start"
         {...props}
         placeholder="Select date"
         min={min}
         max={max}
-        value={value}
-        onChange={e => setValue(e.target.value)}
       />
+      {error && <span className="text-red-600">This field is required</span>}
     </div>
   );
 };

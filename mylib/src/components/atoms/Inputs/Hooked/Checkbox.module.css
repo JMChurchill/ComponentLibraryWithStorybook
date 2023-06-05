@@ -20,7 +20,7 @@
   border-radius: 100%;
   transform: scale(0);
   transition: 120ms transform ease-in-out;
-  box-shadow: inset 1em 1em var(--primary-color);
+  box-shadow: inset 1em 1em var(--color-primary);
   /* Windows High Contrast Mode */
   /* background-color: CanvasText; */
 }

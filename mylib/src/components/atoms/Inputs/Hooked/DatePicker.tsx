@@ -4,7 +4,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { Controller } from 'react-hook-form';
 
 import styles from './DatePicker.module.css';
-import { capitalizeFirstLetter } from '../../../common/textFormating';
+import { capitalizeFirstLetter } from '../../../../common/textFormating';
 
 type DatePickerProps = {
   title?: string;
