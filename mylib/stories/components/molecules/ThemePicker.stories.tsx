@@ -2,11 +2,25 @@ import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import ThemePicker from '../../../src/components/molecules/ThemePicker';
 import ThemeItem from '../../../src/components/atoms/ThemePicker/ThemeItem';
+import Card from '../../../src/components/atoms/Cards/Card';
+import NestedCard from '../../../src/components/atoms/Cards/NestedCard';
 
 const meta: Meta<typeof ThemePicker> = {
   title: 'Components/molecules/ThemePicker',
   component: ThemePicker,
   argTypes: {},
+  decorators: [
+    Story => {
+      return (
+        <Card>
+          <h2>Themes</h2>
+          <NestedCard>
+            <Story />
+          </NestedCard>
+        </Card>
+      );
+    },
+  ],
 };
 export default meta;
 

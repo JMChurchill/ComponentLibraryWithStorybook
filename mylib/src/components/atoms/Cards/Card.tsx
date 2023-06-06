@@ -7,7 +7,7 @@ const Card = ({
   children: ReactNode;
 }) => {
   return (
-    <div className="flex flex-col bg-skin-page-forground rounded-md p-2 text-skin-base shadow-md">
+    <div className="flex flex-col rounded-md bg-skin-page-forground p-4 text-skin-base shadow-md">
       {children}
     </div>
   );

@@ -9,15 +9,15 @@ const SeparatorLine = ({
   showNav?: boolean;
 }) => {
   return (
-    <li className="relative w-full flex justify-center items-center">
+    <li className="relative flex w-full items-center justify-center">
       <p
-        className={`z-20 bg-skin-page-forground px-2 overflow-hidden 
+        className={`z-20 overflow-hidden bg-skin-page-forground px-2 
         ${showNav ? 'max-w-sm' : 'max-w-0 opacity-0'}
         transition-all duration-300`}
       >
         {children}
       </p>
-      <div className="absolute h-[0.1rem] w-[90%] bg-skin-page-forground-hover z-0 rounded-xl"></div>
+      <div className="absolute z-0 h-[0.1rem] w-[90%] rounded-xl bg-skin-page-forground-hover"></div>
     </li>
   );
 };

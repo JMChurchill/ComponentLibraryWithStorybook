@@ -1,6 +1,6 @@
 import React from 'react';
 
-type CheckboxProps = {
+type RadioButtonProps = {
   /** Checkbox label */
   children: string;
   /** Name of registed item (ReactHookForm) */
@@ -17,19 +17,19 @@ type CheckboxProps = {
 
 import styles from './Hooked/Checkbox.module.css';
 
-const Checkbox = ({
+const RadioButton = ({
   children,
   name,
   groupName,
   value,
   currentValue,
   setCurrentValue,
-}: CheckboxProps) => {
+}: RadioButtonProps) => {
   return (
     <div className="w-full py-1">
       <label
         htmlFor={groupName}
-        className={`grid gap-1 items-center cursor-pointer ${styles.form_control} `}
+        className={`grid cursor-pointer items-center gap-1 ${styles.form_control} `}
         style={{ gridTemplateColumns: '1.5rem auto' }}
       >
         <input
@@ -37,9 +37,9 @@ const Checkbox = ({
           name={name}
           value={value}
           id={groupName}
-          className="bg-skin-page-forground-hover outline outline-offset-0 border-none shadow-inner rounded-full grid place-content-center
-          focus:ring-0 focus:outline outline-2 focus:outline-skin-primary focus:outline-offset-2 focus:shadow-none text-transparent 
-          transition-all duration-75"
+          className="grid place-content-center rounded-full border-none bg-skin-page-forground-hover text-transparent shadow-inner outline
+          outline-2 outline-offset-0 transition-all duration-75 focus:shadow-none focus:outline focus:outline-offset-2 
+          focus:outline-skin-primary focus:ring-0"
           checked={currentValue === value}
           onChange={e => setCurrentValue(e.target.value)}
         />
@@ -49,4 +49,4 @@ const Checkbox = ({
   );
 };
 
-export default Checkbox;
+export default RadioButton;

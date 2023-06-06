@@ -11,7 +11,7 @@ const NestedCard = ({
 }) => {
   return (
     <div
-      className={`bg-skin-page-background rounded-md p-2 h-full overflow-auto ${fillHeight &&
+      className={`h-full overflow-auto rounded-md bg-skin-page-background p-4 ${fillHeight &&
         'h-full'}`}
     >
       {children}

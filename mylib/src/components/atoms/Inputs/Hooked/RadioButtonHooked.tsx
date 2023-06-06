@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Checkbox.module.css';
 
-type CheckboxProps = {
+type RadioButtonProps = {
   /** Checkbox label */
   children: string;
   /** Name of registed item (ReactHookForm) */
@@ -17,7 +17,7 @@ type CheckboxProps = {
   /** Used to group together multiple checkboxes */
   groupName: string;
 };
-const CheckboxHooked = ({
+const RadioButtonHooked = ({
   children,
   name,
   register,
@@ -25,12 +25,12 @@ const CheckboxHooked = ({
   value,
   error = null,
   groupName,
-}: CheckboxProps) => {
+}: RadioButtonProps) => {
   return (
     <div className="w-full py-1">
       <label
         htmlFor={groupName}
-        className={`grid gap-1 items-center cursor-pointer ${styles.form_control} `}
+        className={`grid cursor-pointer items-center gap-1 ${styles.form_control} `}
         style={{ gridTemplateColumns: '1.5rem auto' }}
       >
         <input
@@ -39,9 +39,9 @@ const CheckboxHooked = ({
           name={name}
           value={value}
           id={groupName}
-          className="bg-skin-page-forground-hover outline outline-offset-0 border-none shadow-inner rounded-full grid place-content-center
-          focus:ring-0 focus:outline outline-2 focus:outline-skin-primary focus:outline-offset-2 focus:shadow-none text-transparent 
-          transition-all duration-75"
+          className="grid place-content-center rounded-full border-none bg-skin-page-forground-hover text-transparent shadow-inner outline
+          outline-2 outline-offset-0 transition-all duration-75 focus:shadow-none focus:outline focus:outline-offset-2 
+          focus:outline-skin-primary focus:ring-0"
         />
         {children}
       </label>
@@ -50,4 +50,4 @@ const CheckboxHooked = ({
   );
 };
 
-export default CheckboxHooked;
+export default RadioButtonHooked;

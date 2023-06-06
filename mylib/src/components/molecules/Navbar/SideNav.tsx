@@ -39,29 +39,29 @@ const SideNav = ({ children, title, searchEndpoint = null }: SideNavProps) => {
   }, [location]);
 
   return (
-    <header className="bg-skin-page-forground px-4 py-10 flex flex-col gap-3">
+    <header className="flex flex-col gap-3 bg-skin-page-forground px-4 py-10">
       <div>
         <div
           className={`flex flex-row-reverse ${!showNav && 'justify-center'}`}
         >
           <MdMenu
-            className="cursor-pointer text-skin-base p-1 box-content rounded-sm
-                  hover:text-skin-primary hover:bg-skin-page-forground-hover
-                  transition-all duration-500"
+            className="box-content cursor-pointer rounded-sm p-1 text-skin-base
+                  transition-all duration-500
+                  hover:bg-skin-page-forground-hover hover:text-skin-primary"
             size={24}
             onClick={() => setShowNav(!showNav)}
           />
         </div>
 
         <h1
-          className={`whitespace-nowrap flex items-center justify-center overflow-hidden`}
+          className={`flex items-center justify-center overflow-hidden whitespace-nowrap`}
         >
           {title.split(/\s/).map(word => (
             <>
               {word.slice(0, 1)}
               <span
                 className={`overflow-hidden transition-all duration-200 ${
-                  showNav ? 'max-w-xs' : 'opacity-0 max-w-0'
+                  showNav ? 'max-w-xs' : 'max-w-0 opacity-0'
                 }`}
               >
                 {word.slice(1)}&nbsp;

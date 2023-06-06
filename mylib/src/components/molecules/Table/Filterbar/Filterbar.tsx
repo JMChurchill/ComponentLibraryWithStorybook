@@ -137,7 +137,7 @@ const Filterbar = ({
 
   return (
     <div
-      className=" grid p-1 items-start relative"
+      className=" relative grid items-start p-1"
       style={{ gridTemplateColumns: '1fr auto' }}
     >
       <div className="flex flex-row flex-wrap gap-1 text-skin-base">
@@ -155,7 +155,7 @@ const Filterbar = ({
       <div className="flex flex-row gap-2">
         <button
           onClick={() => setIsAdding(!isAdding)}
-          className="bg-skin-page-forground-hover rounded-full px-2 hover:bg-skin-page-forground-hover-hover flex flex-row items-center justify-center gap-1 text-skin-base"
+          className="flex flex-row items-center justify-center gap-1 rounded-full bg-skin-page-forground-hover px-2 text-skin-base hover:bg-skin-page-forground-hover-hover"
         >
           <MdFilterList size={25} />
           Filters
@@ -208,7 +208,7 @@ const Searchbar = ({
     <div className="relative">
       <button
         onClick={() => setIsSearching(!isSearching)}
-        className="bg-skin-page-forground-hover rounded-full px-1 hover:bg-skin-page-forground-hover-hover flex flex-row items-center justify-center gap-1 text-skin-base max-w-[10rem]"
+        className="flex max-w-[10rem] flex-row items-center justify-center gap-1 rounded-full bg-skin-page-forground-hover px-1 text-skin-base hover:bg-skin-page-forground-hover-hover"
       >
         <MdSearch size={24} className="min-w-[18px]" />
         {searchTerm && (
@@ -220,14 +220,14 @@ const Searchbar = ({
                 setSearchTerm('');
                 setData(fullData);
               }}
-              className="hover:text-red-600 min-w-[18px]"
+              className="min-w-[18px] hover:text-red-600"
             />
           </>
         )}
       </button>
       {isSearching && (
         <form
-          className={`absolute top-full right-0 grid my-2`}
+          className={`absolute right-0 top-full my-2 grid`}
           style={{ gridTemplateColumns: '1fr auto' }}
         >
           <div
@@ -235,7 +235,7 @@ const Searchbar = ({
             style={{ gridTemplateColumns: '1fr auto' }}
           >
             <input
-              className="w-48 border-2 border-transparent p-1 text-skin-base rounded-full bg-skin-page-background"
+              className="w-48 rounded-full border-2 border-transparent bg-skin-page-background p-1 text-skin-base"
               value={searchTerm}
               onChange={(e: ChangeEvent<HTMLInputElement>) =>
                 setSearchTerm(e.target.value)
@@ -243,10 +243,10 @@ const Searchbar = ({
               autoFocus
             />
             <button
-              className=" absolute right-0 top-0 h-full text-button-inverse 
-            p-1 m-0 font-bold rounded-full
-            hover:text-button-inverted
-            transition-all duration-200"
+              className=" text-button-inverse absolute right-0 top-0 m-0 
+            h-full rounded-full p-1 font-bold
+            transition-all
+            duration-200 hover:text-button-inverted"
               onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
                 e.preventDefault();
                 setSearchTerm(searchTerm);

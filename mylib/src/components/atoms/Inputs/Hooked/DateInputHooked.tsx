@@ -12,6 +12,7 @@ interface Props extends HTMLAttributes<HTMLInputElement> {
   max?: string | null;
   /** Error object containing all errors from registered inputs */
   error: any;
+  placeholder?: string;
 }
 
 const DateInput = ({
@@ -21,19 +22,20 @@ const DateInput = ({
   max = null,
   required,
   error,
+  placeholder,
   ...props
 }: Props) => {
   return (
     <div className="flex flex-col">
       <input
-        className={`bg-skin-page-background shadow-inner rounded-md px-2 py-1 text-skin-base outline-skin-primary
-         focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-skin-primary focus:ring-0 focus:border-none transition-all duration-75`}
+        className={`rounded-md bg-skin-page-background px-2 py-1 text-skin-base shadow-inner outline-skin-primary
+         transition-all duration-75 focus:border-none focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-skin-primary focus:ring-0`}
         type="date"
         {...register(name, { required: required })}
         id="start"
         name="trip-start"
         {...props}
-        placeholder="Select date"
+        placeholder={placeholder}
         min={min}
         max={max}
       />

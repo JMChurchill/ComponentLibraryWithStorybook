@@ -30,13 +30,13 @@ export { default as TestingBanner } from './components/molecules/TestingBanner';
 
 // Inputs
 export { default as TextInput } from './components/atoms/Inputs/TextInput';
-export { default as Checkbox } from './components/atoms/Inputs/Checkbox';
+export { default as RadioButton } from './components/atoms/Inputs/RadioButton';
 export { default as DateInput } from './components/atoms/Inputs/DateInput';
 export { default as DropDown } from './components/atoms/Inputs/DropDown';
 
 /// Hooked Inputs
 export { default as TextInputHooked } from './components/atoms/Inputs/Hooked/TextInputHooked';
-export { default as CheckboxHooked } from './components/atoms/Inputs/Hooked/CheckboxHooked';
+export { default as RadioButtonHooked } from './components/atoms/Inputs/Hooked/RadioButtonHooked';
 export { default as DateInputHooked } from './components/atoms/Inputs/Hooked/DateInputHooked';
 export { default as DropDownHooked } from './components/atoms/Inputs/Hooked/DropDownHooked';
 export { default as UploadInputHooked } from './components/atoms/Inputs/Hooked/FileSelectInput/UploadInput';

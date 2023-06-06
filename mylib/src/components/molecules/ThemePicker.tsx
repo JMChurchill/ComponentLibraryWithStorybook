@@ -1,7 +1,5 @@
 import React, { Children, ReactElement, ReactNode, useEffect } from 'react';
 import { useLocalStorage } from '../../Hooks/useStorage';
-import Card from '../atoms/Cards/Card';
-import NestedCard from '../atoms/Cards/NestedCard';
 
 type ThemePickerProps = {
   children: ReactNode[];
@@ -72,21 +70,16 @@ const ThemePicker = ({ children }: ThemePickerProps) => {
   }, [selectedTheme]);
 
   return (
-    <Card>
-      <h2>Themes</h2>
-      <NestedCard>
-        <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
-          {Children.map(children, child => {
-            if (React.isValidElement(child)) {
-              return React.cloneElement(child as ReactElement<any>, {
-                selectedTheme,
-                setSelectedTheme,
-              });
-            } else return <></>;
-          })}
-        </div>
-      </NestedCard>
-    </Card>
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {Children.map(children, child => {
+        if (React.isValidElement(child)) {
+          return React.cloneElement(child as ReactElement<any>, {
+            selectedTheme,
+            setSelectedTheme,
+          });
+        } else return <></>;
+      })}
+    </div>
   );
 };
 

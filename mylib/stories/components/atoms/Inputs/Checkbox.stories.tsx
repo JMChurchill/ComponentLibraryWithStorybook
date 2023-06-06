@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import Checkbox from '../../../../src/components/atoms/Inputs/Checkbox';
+import RadioButton from '../../../../src/components/atoms/Inputs/RadioButton';
 
-const meta: Meta<typeof Checkbox> = {
-  title: 'Components/atoms/Inputs/Checkbox',
-  component: Checkbox,
+const meta: Meta<typeof RadioButton> = {
+  title: 'Components/atoms/Inputs/RadioButton',
+  component: RadioButton,
   argTypes: {},
 };
 export default meta;
 
-type Story = StoryObj<typeof Checkbox>;
+type Story = StoryObj<typeof RadioButton>;
 
-const CheckboxTemplate: Story = {
+const RadioButtonTemplate: Story = {
   render: ({
     children,
     value,
@@ -25,10 +25,11 @@ const CheckboxTemplate: Story = {
     useEffect(() => {
       setCurrentValue(cVal ?? '');
     }, [cVal]);
+
     return (
       <div>
         <p>Value: {currentValue}</p>
-        <Checkbox
+        <RadioButton
           groupName={groupName}
           name={name}
           value={value}
@@ -36,28 +37,28 @@ const CheckboxTemplate: Story = {
           setCurrentValue={setCurrentValue}
         >
           {children}
-        </Checkbox>
+        </RadioButton>
       </div>
     );
   },
 };
 export const Default: Story = {
-  ...CheckboxTemplate,
+  ...RadioButtonTemplate,
   args: {
     groupName: 'testGroup',
-    name: 'Checkbox',
+    name: 'RadioButton',
     value: '1',
     children: 'Default box',
     currentValue: '',
   },
 };
 
-const MultipleCheckboxes = () => {
+const MultipleRadioButton = () => {
   const [value, setValue] = useState('1');
   return (
     <div>
       <p>Value: {value}</p>
-      <Checkbox
+      <RadioButton
         groupName="one"
         name="multiGroup"
         value={'1'}
@@ -65,8 +66,8 @@ const MultipleCheckboxes = () => {
         setCurrentValue={setValue}
       >
         One
-      </Checkbox>
-      <Checkbox
+      </RadioButton>
+      <RadioButton
         groupName="two"
         name="multiGroup"
         value={'2'}
@@ -74,13 +75,13 @@ const MultipleCheckboxes = () => {
         setCurrentValue={setValue}
       >
         Two
-      </Checkbox>
+      </RadioButton>
     </div>
   );
 };
 
-type MultiStory = StoryObj<typeof MultipleCheckboxes>;
+type MultiStory = StoryObj<typeof MultipleRadioButton>;
 
 export const Multiple: MultiStory = {
-  render: () => <MultipleCheckboxes />,
+  render: () => <MultipleRadioButton />,
 };

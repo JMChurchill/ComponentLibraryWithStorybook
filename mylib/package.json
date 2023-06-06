@@ -1,5 +1,5 @@
 {
-  "version": "0.2.14",
+  "version": "1.0.5",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -71,6 +71,7 @@
     "babel-loader": "^9.1.2",
     "chromatic": "^6.18.0",
     "husky": "^8.0.3",
+    "prettier-plugin-tailwindcss": "^0.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
@@ -90,6 +91,7 @@
     "@types/react-datepicker": "^4.11.2",
     "autoprefixer": "^10.4.14",
     "cssnano": "^6.0.1",
+    "env-cmd": "^10.1.0",
     "framer-motion": "^10.12.16",
     "rc-slider": "^10.1.1",
     "react-datepicker": "^4.12.0",

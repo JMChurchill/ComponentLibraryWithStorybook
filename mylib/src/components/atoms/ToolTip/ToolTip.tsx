@@ -30,7 +30,7 @@ const ToolTip = ({
             ? '-bottom-2 left-[50%] -translate-x-1/2 translate-y-full'
             : position === 'left'
             ? '-left-2 top-[50%] -translate-x-full -translate-y-1/2'
-            : '-right-2 top-[50%] translate-x-full -translate-y-1/2'
+            : '-right-2 top-[50%] -translate-y-1/2 translate-x-full'
         }
         `}
       >

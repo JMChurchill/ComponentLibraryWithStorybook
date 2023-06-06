@@ -20,20 +20,20 @@ const SubLink = ({
 
   return (
     <li
-      className={`relative flex flex-row px-2 py-1 items-center text-skin-base cursor-pointer gap-5 rounded-sm
-        hover:text-skin-primary hover:bg-skin-page-forground-hover 
-        transition-all duration-500
+      className={`relative flex cursor-pointer flex-row items-center gap-5 rounded-sm px-2 py-1 text-skin-base
+        transition-all duration-500 
+        hover:bg-skin-page-forground-hover hover:text-skin-primary
         ${isCurrent ? 'text-skin-primary' : ''}`}
     >
-      <div className={`bg-transparent w-6 `}></div>
+      <div className={`w-6 bg-transparent `}></div>
       <Link
         to={to}
-        className={`px-2 py-1 rounded-full ${showNav ? '' : 'hidden'}`}
+        className={`rounded-full px-2 py-1 ${showNav ? '' : 'hidden'}`}
       >
         {name}
       </Link>
       <div
-        className={`bg-skin-primary rounded-full w-2 h-2 absolute right-0 bottom-0 p-1 transition-all duration-500 ${
+        className={`absolute bottom-0 right-0 h-2 w-2 rounded-full bg-skin-primary p-1 transition-all duration-500 ${
           notifications === undefined || notifications === 0 || showNav
             ? 'invisible opacity-0'
             : 'visible opacity-100'
@@ -41,7 +41,7 @@ const SubLink = ({
       ></div>
 
       <p
-        className={`bg-skin-primary px-2 rounded-full ${
+        className={`rounded-full bg-skin-primary px-2 ${
           showNav ? '' : 'hidden'
         }`}
       >

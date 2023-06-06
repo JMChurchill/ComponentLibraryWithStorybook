@@ -19,10 +19,10 @@ const ErrorMessage = ({
   return (
     <div
       className={`py-4 ${
-        center ? 'flex flex-col justify-center items-center gap-2' : ''
+        center ? 'flex flex-col items-center justify-center gap-2' : ''
       }`}
     >
-      <p className="text-red-600 font-bold">{children}</p>
+      <p className="font-bold text-red-600">{children}</p>
       {refreshFunc && <Button onClick={refreshFunc}>Refresh</Button>}
     </div>
   );

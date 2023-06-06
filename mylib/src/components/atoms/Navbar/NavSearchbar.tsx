@@ -21,30 +21,32 @@ const NavSearchbar = ({
   return (
     <>
       <form
-        className={`relative grid transition-all duration-200 overflow-hidden ${
+        className={`relative grid overflow-hidden transition-all duration-200 ${
           showNav ? 'w-48' : 'overflow-visible'
         }`}
         style={{ gridTemplateColumns: '1fr auto' }}
       >
         <div
-          className={`grid transition-all duration-200 overflow-hidden ${
+          className={`grid overflow-hidden transition-all duration-200 ${
             showNav ? 'w-48' : 'w-0'
           }`}
           style={{ gridTemplateColumns: '1fr auto' }}
         >
           <input
-            className="w-full border-2 border-transparent p-1 px-2 rounded-full bg-skin-page-background text-skin-base outline-skin-primary"
+            className="w-full rounded-full border-2 border-transparent bg-skin-page-background p-1 px-2 text-skin-base outline-skin-primary"
             value={searchTerm}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               setSearchTerm(e.target.value)
             }
           />
           <button
-            className={` absolute right-0 top-0 h-full text-button-inverse 
-            p-1 m-0 font-bold rounded-full
-            flex items-center justify-center
-            hover:text-button-inverted
-            transition-all duration-200 ${showNav ? 'flex' : 'hidden'}`}
+            className={` text-button-inverse absolute right-0 top-0 m-0 
+            flex h-full items-center justify-center
+            rounded-full p-1 font-bold
+            transition-all
+            duration-200 hover:text-button-inverted ${
+              showNav ? 'flex' : 'hidden'
+            }`}
             // className="bg-skin-primary text-button-base border-skin-primary
             // p-1 px-2 m-0 border-2 font-bold
             // hover:bg-skin-page-forground hover:text-button-inverted
@@ -83,19 +85,19 @@ const FloatingSearch = ({
   searchEndpoint: string;
 }) => {
   return (
-    <div className="relative flex items-center justify-center w-full text-skin-base group z-50">
+    <div className="group relative z-50 flex w-full items-center justify-center text-skin-base">
       <MdSearch
         size={20}
-        className="px-2 py-1 box-content hover:text-skin-primary
-      hover:bg-skin-page-forground-hover cursor-pointer transition-all
-      duration-500"
+        className="box-content cursor-pointer px-2 py-1
+      transition-all duration-500 hover:bg-skin-page-forground-hover
+      hover:text-skin-primary"
       />
       <div
-        className="absolute invisible opacity-0 left-full px-8 hover:visible group-hover:visible  group-hover:opacity-100  hover:opacity-100
-                transition-all duration-500"
+        className="invisible absolute left-full px-8 opacity-0 transition-all duration-500  hover:visible  hover:opacity-100
+                group-hover:visible group-hover:opacity-100"
       >
         <div
-          className="grid w-48 p-2 py-1 bg-skin-page-forground-hover rounded-full"
+          className="grid w-48 rounded-full bg-skin-page-forground-hover p-2 py-1"
           style={{ gridTemplateColumns: '1fr auto' }}
         >
           <input
@@ -106,10 +108,10 @@ const FloatingSearch = ({
             }
           />
           <button
-            className="absolute right-0 top-0 h-full bg-transparent text-button-inverted 
-            p-1 m-0 font-bold -translate-x-full
-            hover:text-button-inverted
-            transition-all duration-200"
+            className="absolute right-0 top-0 m-0 h-full -translate-x-full 
+            bg-transparent p-1 font-bold text-button-inverted
+            transition-all
+            duration-200 hover:text-button-inverted"
             onClick={e => {
               e.preventDefault();
               navigate(`/${searchEndpoint}/${searchTerm}`, {

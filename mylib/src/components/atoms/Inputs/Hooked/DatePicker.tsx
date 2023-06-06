@@ -59,7 +59,7 @@ const DatePicker = ({
               {/* {field.value} */}
               <ReactDatePicker
                 dateFormat={'dd/MM/yyyy'}
-                className={`bg-skin-page-background rounded-md ${errors &&
+                className={`rounded-md bg-skin-page-background ${errors &&
                   styles.error_input}`}
                 placeholderText="Select date"
                 // onChange={(date) => field.onChange(date)}
@@ -94,7 +94,7 @@ const DatePicker = ({
         render={({ field }: any) => (
           <ReactDatePicker
             dateFormat={'dd/MM/yyyy'}
-            className={`bg-skin-page-background text-skin-base rounded-md ${errors &&
+            className={`rounded-md bg-skin-page-background text-skin-base ${errors &&
               styles.error_input}`}
             placeholderText="Select date"
             minDate={!allowPast ? new Date() : null}

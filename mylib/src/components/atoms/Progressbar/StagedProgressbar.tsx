@@ -12,8 +12,8 @@ const StagedProgressbar = ({ stages, progress }: StagedProgressbarProps) => {
 
   return (
     <div className="p-1">
-      <div className="relative w-full h-2  my-5 mx-0 rounded-xl shadow-sm">
-        <div className="absolute top-0 left-0 flex flex-row w-full gap-3 ">
+      <div className="relative mx-0 my-5  h-2 w-full rounded-xl shadow-sm">
+        <div className="absolute left-0 top-0 flex w-full flex-row gap-3 ">
           {stages.map((stage, i) => (
             <Stage
               key={i}
@@ -63,7 +63,7 @@ const Stage = ({
       }
     >
       <h2
-        className="absolute bottom-full left-1/2 translate-x-[-50%] font-bold text-center"
+        className="absolute bottom-full left-1/2 translate-x-[-50%] text-center font-bold"
         style={{
           width: '100%',
           whiteSpace: 'nowrap',

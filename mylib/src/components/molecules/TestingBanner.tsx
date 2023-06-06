@@ -6,19 +6,19 @@ const TestingBanner = () => {
   const [isActive, setIsActive] = useState<boolean>(true);
   return (
     <div
-      className={`fixed top-[20%] right-0 flex flex-row gap-2 items-center bg-skin-primary-transparent rounded-md w-fit py-2 px-2 pr-5 m-2
-      z-[99999999999]
-            -translate-y-[50%] transition-all ${
+      className={`fixed right-0 top-[20%] z-[99999999999] m-2 flex w-fit -translate-y-[50%] flex-row items-center gap-2 rounded-md bg-skin-primary-transparent px-2
+      py-2
+            pr-5 transition-all ${
               isActive
                 ? 'translate-x-0'
-                : 'translate-x-[calc(100%-2.25rem-0.5rem)] hover:translate-x-[calc(100%-2.25rem-1rem)] cursor-pointer'
+                : 'translate-x-[calc(100%-2.25rem-0.5rem)] cursor-pointer hover:translate-x-[calc(100%-2.25rem-1rem)]'
             }`}
       onClick={() => !isActive && setIsActive(true)}
     >
       <MdScience className="text-4xl text-white" />
-      <p className="text-white text-2xl">Test System</p>
+      <p className="text-2xl text-white">Test System</p>
       <MdClose
-        className="absolute top-0 right-0 m-1 text-md text-white cursor-pointer hover:bg-white hover:text-skin-primary rounded-full"
+        className="text-md absolute right-0 top-0 m-1 cursor-pointer rounded-full text-white hover:bg-white hover:text-skin-primary"
         onClick={() => setIsActive(false)}
       />
     </div>

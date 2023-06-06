@@ -52,7 +52,7 @@ const UploadInput = ({
     <>
       <div className="flex flex-col items-start gap-4">
         <div
-          className={`flex items-center justify-center p-4 w-full min-h-[5rem] rounded-md border-dashed border-2 ${
+          className={`flex min-h-[5rem] w-full items-center justify-center rounded-md border-2 border-dashed p-4 ${
             dragActive ? 'border-skin-primary' : 'border-skin-text'
           }`}
           onDragEnter={handleDrag}
@@ -64,10 +64,10 @@ const UploadInput = ({
         </div>
         <label
           htmlFor="files"
-          className="flex flex-row gap-2 bg-skin-primary p-2 rounded-md text-button-base 
-              border-2 border-skin-primary font-bold
-              hover:bg-transparent hover:text-skin-primary
-              transition-all duration-300 cursor-pointer"
+          className="flex cursor-pointer flex-row gap-2 rounded-md border-2 border-skin-primary 
+              bg-skin-primary p-2 font-bold
+              text-button-base transition-all
+              duration-300 hover:bg-transparent hover:text-skin-primary"
           tabIndex={0}
         >
           <MdUpload size={24} />

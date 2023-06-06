@@ -24,9 +24,9 @@ const ThemeItem = ({
   } = theme;
   return (
     <div
-      className={`rounded-md outline outline-offset-0 cursor-pointer transition-all duration-75 shadow-md ${
+      className={`cursor-pointer rounded-md shadow-md outline outline-offset-0 transition-all duration-75 ${
         selectedTheme && id === selectedTheme.id
-          ? 'outline-2 outline-skin-primary outline-offset-2'
+          ? 'outline-2 outline-offset-2 outline-skin-primary'
           : 'outline-none'
       }`}
       style={{ backgroundColor: backgroundColor }}
@@ -42,11 +42,11 @@ const ThemeItem = ({
         <p style={{ color: textSecondary }}>Lorem ipsum dolor sit.</p>
         <div className="flex flex-row gap-4 py-2">
           <div
-            className="w-10 h-6 rounded-md border-2"
+            className="h-6 w-10 rounded-md border-2"
             style={{ borderColor: primary }}
           ></div>
           <div
-            className="w-10 h-6 rounded-md"
+            className="h-6 w-10 rounded-md"
             style={{ backgroundColor: primary }}
           ></div>
         </div>

@@ -160,18 +160,18 @@ const Carousel = ({ images, imgFormat = 'byte array' }: CarouselProps) => {
 
   return (
     <div className="relative">
-      <div className="flex flex-row rounded-md h-[70vh] overflow-hidden relative">
+      <div className="relative flex h-[70vh] flex-row overflow-hidden rounded-md">
         <>
           {images.map((image, i) => (
             <>
-              <div className="relative overflow-hidden w-full max-h-full shrink-0 rounded-md">
+              <div className="relative max-h-full w-full shrink-0 overflow-hidden rounded-md">
                 <div
                   key={i}
                   ref={el => {
                     el !== null && (caroucelRef.current[i] = el);
                   }}
-                  className={`rounded-md shrink-0 w-full max-h-full h-full overflow-hidden relative transition-all duration-75
-                translate-x-10 translate-y-20
+                  className={`relative h-full max-h-full w-full shrink-0 translate-x-10 translate-y-20 overflow-hidden rounded-md
+                transition-all duration-75
                 ${
                   imageZoomSize > 100
                     ? isDragging
@@ -199,11 +199,11 @@ const Carousel = ({ images, imgFormat = 'byte array' }: CarouselProps) => {
         </>
       </div>
       {/* Floaters */}
-      <div className="flex flex-row gap-2 absolute left-1/2 bottom-8 -translate-x-1/2 bg-black bg-opacity-25 px-2 py-1 rounded-md">
+      <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 flex-row gap-2 rounded-md bg-black bg-opacity-25 px-2 py-1">
         <>
           {images.map((_img, i) => (
             <div
-              className={` rounded-full h-2 w-2 hover:scale-125 cursor-pointer ${
+              className={` h-2 w-2 cursor-pointer rounded-full hover:scale-125 ${
                 i === currentIndex ? 'bg-skin-primary' : 'bg-white'
               }`}
               onClick={() => setCurrentIndex(i)}
@@ -211,7 +211,7 @@ const Carousel = ({ images, imgFormat = 'byte array' }: CarouselProps) => {
           ))}
         </>
       </div>
-      <div className="absolute top-0 right-0 flex flex-col items-center justify-center gap-4 m-2">
+      <div className="absolute right-0 top-0 m-2 flex flex-col items-center justify-center gap-4">
         <>
           {images && (
             <ToolTip text="Download" position="left" nowrap>
@@ -219,7 +219,7 @@ const Carousel = ({ images, imgFormat = 'byte array' }: CarouselProps) => {
                 <a
                   download="Image.png"
                   href={`data:image/png;base64,${images[currentIndex]}`}
-                  className="bg-black bg-opacity-50 text-white p-1.5 rounded-md hover:scale-125 cursor-pointer"
+                  className="cursor-pointer rounded-md bg-black bg-opacity-50 p-1.5 text-white hover:scale-125"
                 >
                   <MdDownload className="text-2xl" />
                 </a>
@@ -227,7 +227,7 @@ const Carousel = ({ images, imgFormat = 'byte array' }: CarouselProps) => {
                 <a
                   download
                   href={images[currentIndex]}
-                  className="bg-black bg-opacity-50 text-white p-1.5 rounded-md hover:scale-125 cursor-pointer"
+                  className="cursor-pointer rounded-md bg-black bg-opacity-50 p-1.5 text-white hover:scale-125"
                 >
                   <MdDownload className="text-2xl" />
                 </a>
@@ -235,10 +235,10 @@ const Carousel = ({ images, imgFormat = 'byte array' }: CarouselProps) => {
             </ToolTip>
           )}
         </>
-        <div className="flex flex-col gap-4 items-center justify-center">
+        <div className="flex flex-col items-center justify-center gap-4">
           <ToolTip text="Zoom In" position="left" nowrap>
             <button
-              className="bg-black bg-opacity-50 text-white p-1.5 rounded-md hover:scale-125 cursor-pointer"
+              className="cursor-pointer rounded-md bg-black bg-opacity-50 p-1.5 text-white hover:scale-125"
               onClick={() => zoomIn()}
             >
               <MdZoomIn size={24} />
@@ -246,7 +246,7 @@ const Carousel = ({ images, imgFormat = 'byte array' }: CarouselProps) => {
           </ToolTip>
           <ToolTip text="Zoom Out" position="left" nowrap>
             <button
-              className="bg-black bg-opacity-50 text-white p-1.5 rounded-md hover:scale-125 cursor-pointer"
+              className="cursor-pointer rounded-md bg-black bg-opacity-50 p-1.5 text-white hover:scale-125"
               onClick={() => zoomOut()}
             >
               <MdZoomOut size={24} />
@@ -257,7 +257,7 @@ const Carousel = ({ images, imgFormat = 'byte array' }: CarouselProps) => {
 
       {/* Arrows */}
       <div
-        className={`bg-black bg-opacity-25 text-white absolute top-1/2 right-0 -translate-y-1/2 rounded-md mx-4 cursor-pointer ${
+        className={`absolute right-0 top-1/2 mx-4 -translate-y-1/2 cursor-pointer rounded-md bg-black bg-opacity-25 text-white ${
           images && currentIndex < images.length - 1 ? 'visible' : 'invisible'
         }`}
         onClick={scrollRight}
@@ -265,7 +265,7 @@ const Carousel = ({ images, imgFormat = 'byte array' }: CarouselProps) => {
         <MdKeyboardArrowRight size={35} />
       </div>
       <div
-        className={`bg-black bg-opacity-25 text-white absolute top-1/2 left-0 -translate-y-1/2 rounded-md mx-4 cursor-pointer ${
+        className={`absolute left-0 top-1/2 mx-4 -translate-y-1/2 cursor-pointer rounded-md bg-black bg-opacity-25 text-white ${
           currentIndex > 0 ? 'visible' : 'invisible'
         }`}
         onClick={scrollLeft}

@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 
 type TextInputProps = {
   /** Displayed when there's no value in the input field */
-  placeholder: string;
+  placeholder?: string;
   /** Name of registed item (ReactHookForm) */
   name: string;
   /** Does the input have multiple lines */
@@ -41,9 +41,9 @@ const TextInputHooked = ({
             typeof required === 'boolean' ? { required: required } : required
           )}
           style={error ? errorStyle : null}
-          className={`w-full flex flex-col bg-skin-page-background shadow-inner rounded-md px-2 py-1 text-skin-base border-none
-          focus:outline focus:outline-2 outline-offset-0 focus:outline-offset-2 focus:outline-skin-primary focus:ring-0 focus:border-none
-          transition-all duration-75
+          className={`flex w-full flex-col rounded-md border-none bg-skin-page-background px-2 py-1 text-skin-base shadow-inner
+          outline-offset-0 transition-all duration-75 focus:border-none focus:outline focus:outline-2 focus:outline-offset-2
+          focus:outline-skin-primary focus:ring-0
           `}
           placeholder={placeholder}
           name={name}
@@ -62,9 +62,9 @@ const TextInputHooked = ({
     <div className="w-full">
       <textarea
         style={error ? errorStyle : null}
-        className={`flex flex-col w-full bg-skin-page-background shadow-inner rounded-md px-2 py-1 text-skin-base border-none
-        focus:outline focus:outline-2 outline-offset-0 focus:outline-offset-2 focus:outline-skin-primary focus:ring-0 focus:border-none
-          transition-all duration-75`}
+        className={`flex w-full flex-col rounded-md border-none bg-skin-page-background px-2 py-1 text-skin-base shadow-inner
+        outline-offset-0 transition-all duration-75 focus:border-none focus:outline focus:outline-2 focus:outline-offset-2
+          focus:outline-skin-primary focus:ring-0`}
         placeholder={placeholder}
         rows="5"
         cols="40"

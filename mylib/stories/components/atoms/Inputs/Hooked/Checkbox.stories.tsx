@@ -1,34 +1,33 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import Checkbox from '../../../../../src/components/atoms/Inputs/Hooked/CheckboxHooked';
+import RadioButton from '../../../../../src/components/atoms/Inputs/Hooked/RadioButtonHooked';
 
-const meta: Meta<typeof Checkbox> = {
-  title: 'Components/atoms/Inputs/Hooked/Checkbox',
-  component: Checkbox,
+const meta: Meta<typeof RadioButton> = {
+  title: 'Components/atoms/Inputs/Hooked/RadioButton',
+  component: RadioButton,
   argTypes: {},
 };
 export default meta;
 
-type Story = StoryObj<typeof Checkbox>;
+type Story = StoryObj<typeof RadioButton>;
 
-// const [files, setFiles] = useState<File[]>([]);
 const regMock = (text, any) => {};
 export const Default: Story = {
   args: {
     register: regMock,
     groupName: 'testGroup',
     error: null,
-    name: 'Checkbox',
+    name: 'RadioButton',
     required: false,
     value: 'true',
     children: 'Default box',
   },
 };
 
-const MultipleCheckboxes = () => {
+const MultipleRadioButton = () => {
   return (
     <div>
-      <Checkbox
+      <RadioButton
         groupName="one"
         name="multiGroup"
         required={false}
@@ -36,8 +35,8 @@ const MultipleCheckboxes = () => {
         register={regMock}
       >
         One
-      </Checkbox>
-      <Checkbox
+      </RadioButton>
+      <RadioButton
         groupName="two"
         name="multiGroup"
         required={false}
@@ -45,13 +44,13 @@ const MultipleCheckboxes = () => {
         register={regMock}
       >
         Two
-      </Checkbox>
+      </RadioButton>
     </div>
   );
 };
 
-type MultiStory = StoryObj<typeof MultipleCheckboxes>;
+type MultiStory = StoryObj<typeof MultipleRadioButton>;
 
 export const Multiple: MultiStory = {
-  render: () => <MultipleCheckboxes />,
+  render: () => <MultipleRadioButton />,
 };

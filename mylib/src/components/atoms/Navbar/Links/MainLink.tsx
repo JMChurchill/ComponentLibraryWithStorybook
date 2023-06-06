@@ -23,9 +23,9 @@ const MainLink = ({
     <li className="list-none">
       <Link
         to={to}
-        className={`relative flex flex-row px-2 py-1 items-center text-skin-base cursor-pointer gap-5 rounded-sm
-        hover:text-skin-primary hover:bg-skin-page-forground-hover 
-        transition-all duration-500
+        className={`relative flex cursor-pointer flex-row items-center gap-5 rounded-sm px-2 py-1 text-skin-base
+        transition-all duration-500 
+        hover:bg-skin-page-forground-hover hover:text-skin-primary
         ${isCurrent ? 'text-skin-primary' : ''}`}
       >
         <Icon size={24} />
@@ -38,9 +38,9 @@ const MainLink = ({
           {name}
         </p>
         <p
-          className={`bg-skin-primary px-2 rounded-full transition-all duration-200 overflow-hidden ${
+          className={`overflow-hidden rounded-full bg-skin-primary px-2 transition-all duration-200 ${
             notifications !== undefined && notifications !== 0 && !showNav
-              ? 'text-[0] text-transparent w-2 h-2 right-0 bottom-0 px-1 py-1 absolute'
+              ? 'absolute bottom-0 right-0 h-2 w-2 px-1 py-1 text-[0] text-transparent'
               : !showNav
               ? 'hidden'
               : ''

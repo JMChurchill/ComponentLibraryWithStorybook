@@ -10,7 +10,7 @@ import { FilterType } from './Filterbar';
 import DatePicker from '../../../atoms/Inputs/Hooked/DatePicker';
 import { toReadableDate } from '../../../../common/date';
 import { capitalizeFirstLetter } from '../../../../common/textFormating';
-import Checkbox from '../../../atoms/Inputs/Hooked/CheckboxHooked';
+import RadioButton from '../../../atoms/Inputs/Hooked/RadioButtonHooked';
 import MultiSelect from '../../../atoms/Inputs/Hooked/MultiSelectHooked';
 
 type FilterSettingsProps = {
@@ -80,7 +80,7 @@ const FilterSettings = ({
       ? capitalizeFirstLetter(aliases[key])
       : capitalizeFirstLetter(key);
 
-  const renderCheckboxed = (vals: ItemType[], key: string) => {
+  const renderRadioButton = (vals: ItemType[], key: string) => {
     // Get distinct values (should be true and false)
     const distinctVals = vals.filter(
       (a: any, i) => vals.findIndex((s: any) => a.value === s.value) === i
@@ -88,9 +88,9 @@ const FilterSettings = ({
     // render check boxes if true and false are both present
     if (distinctVals.length == 2) {
       console.log(distinctVals);
-      const checkBoxes = distinctVals.map((v, index) => {
+      const radioButtons = distinctVals.map((v, index) => {
         return (
-          <Checkbox
+          <RadioButton
             name={`${key}-${index}`}
             value={v.value ? 'True' : 'False'}
             groupName={v.value}
@@ -99,23 +99,23 @@ const FilterSettings = ({
             error={errors[key]}
           >
             {v.value ? 'True' : 'False'}
-          </Checkbox>
+          </RadioButton>
         );
       });
       return (
         <>
-          <div className="flex flex-row gap-4 items-center">
+          <div className="flex flex-row items-center gap-4">
             <p>{getFilterLabel(key)}</p>
             <MdOutlineClose
               size={24}
-              className="hover:bg-red-600 rounded-full cursor-pointer transition-all duration-500"
+              className="cursor-pointer rounded-full transition-all duration-500 hover:bg-red-600"
               onClick={e => {
                 e.preventDefault();
                 setValue(key, []);
               }}
             />
           </div>
-          {checkBoxes}
+          {radioButtons}
         </>
       );
     } else {
@@ -363,14 +363,14 @@ const FilterSettings = ({
                     <div className="flex flex-row items-end justify-between">
                       <p>{getFilterLabel(key)}</p>
 
-                      <p className="var(--color-primary) px-2 rounded-full">
-                        <span className="bg-skin-primary rounded-lg px-2">
+                      <p className="var(--color-primary) rounded-full px-2">
+                        <span className="rounded-lg bg-skin-primary px-2">
                           {field.value[0] !== undefined
                             ? field.value[0]
                             : Math.min(...numArr)}
                         </span>
                         {` - `}
-                        <span className="bg-skin-primary rounded-lg px-2">
+                        <span className="rounded-lg bg-skin-primary px-2">
                           {field.value[0] !== undefined
                             ? field.value[1]
                             : Math.max(...numArr)}
@@ -419,7 +419,7 @@ const FilterSettings = ({
               />
             </>
           )}
-          {typ === 'boolean' && <>{renderCheckboxed(val, key)}</>}
+          {typ === 'boolean' && <>{renderRadioButton(val, key)}</>}
           {!(typ === 'string' || typ === 'boolean' || typ === 'number') &&
             !val.filter(v => v.value)[0] &&
             !(val.filter(v => v.value)[0].value instanceof Date) &&
@@ -498,27 +498,27 @@ const FilterSettings = ({
             },
           }}
           // ${isAdding ? "flex" : "hidden"}
-          className={` bg-skin-page-forground absolute top-full right-0 py-5 px-1 m-0 my-1 rounded-md shadow-sm z-50 min-w-[100%] md:m-1 sm:min-w-[50%] 
+          className={` absolute right-0 top-full z-50 m-0 my-1 min-w-[100%] rounded-md bg-skin-page-forground px-1 py-5 shadow-sm sm:min-w-[50%] md:m-1 
       md:min-w-[33%] lg:min-w-[33%] xl:min-w-[25%]`}
         >
           <form
-            className="flex flex-col gap-2 min-w-full"
+            className="flex min-w-full flex-col gap-2"
             onSubmit={handleSubmit(onSubmit)}
           >
-            <div className="relative flex flex-row justify-between items-center pb-1 px-3">
+            <div className="relative flex flex-row items-center justify-between px-3 pb-1">
               <h3>Add filter</h3>
               <MdOutlineClose
                 size={25}
-                className="text-skin-base hover:text-red-600 hover:bg-skin-page-forground-hover rounded-full cursor-pointer transition-all duration-500"
+                className="cursor-pointer rounded-full text-skin-base transition-all duration-500 hover:bg-skin-page-forground-hover hover:text-red-600"
                 onClick={() => setIsAdding(false)}
               />
-              <div className=" absolute w-full h-0.5 bg-white bottom-0 left-0 opacity-10 rounded-full"></div>
+              <div className=" absolute bottom-0 left-0 h-0.5 w-full rounded-full bg-white opacity-10"></div>
             </div>
-            <div className="px-3 max-h-[50vh] overflow-y-auto overflow-x-hidden">
+            <div className="max-h-[50vh] overflow-y-auto overflow-x-hidden px-3">
               {/* {getFilterPoints()} */}
               {filterComponents}
             </div>
-            <div className="flex flex-col w-full px-3">
+            <div className="flex w-full flex-col px-3">
               <Button onClick={() => {}}>Filter</Button>
             </div>
           </form>
