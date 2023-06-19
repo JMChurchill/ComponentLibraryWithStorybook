@@ -24,7 +24,7 @@ const Button = ({
         variant === 'primary'
           ? 'bg-skin-primary text-button-base hover:bg-transparent hover:text-button-inverted'
           : 'bg-transparent text-skin-primary hover:bg-skin-primary hover:text-white'
-      }  flex cursor-pointer flex-row gap-2 rounded-md border-2 border-skin-primary p-1 px-2 font-bold transition-all`}
+      }  flex cursor-pointer flex-row items-center gap-2 rounded-md border-2 border-skin-primary p-1 px-2 font-bold transition-all`}
       {...props}
     >
       {position === 'before' && Icon && <Icon size={20} />}

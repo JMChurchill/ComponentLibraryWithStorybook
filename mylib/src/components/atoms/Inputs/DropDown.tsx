@@ -2,7 +2,7 @@ import React from 'react';
 
 type DropDownProps = {
   name: string;
-  value: string | number;
+  value: string | number | undefined;
   setValue: (value: any) => void;
   options: Option[];
 };
@@ -21,10 +21,10 @@ const DropDown = ({ value, setValue, name, options = [] }: DropDownProps) => {
         name={name}
         title={name}
         value={value}
-        onChange={e => setValue(e.target.value)}
+        onChange={(e) => setValue(e.target.value)}
       >
         <option></option>
-        {options.map(op => (
+        {options.map((op) => (
           <option key={op.value} value={op.value}>
             {op.label}
           </option>
