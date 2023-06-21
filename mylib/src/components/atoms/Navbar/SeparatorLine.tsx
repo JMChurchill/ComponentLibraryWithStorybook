@@ -4,9 +4,11 @@ import React from 'react';
 const SeparatorLine = ({
   children,
   showNav = true,
+  noPaddingX = false,
 }: {
   children?: string;
   showNav?: boolean;
+  noPaddingX?: boolean;
 }) => {
   return (
     <li className="relative flex w-full items-center justify-center">
@@ -17,7 +19,11 @@ const SeparatorLine = ({
       >
         {children}
       </p>
-      <div className="absolute z-0 h-[0.1rem] w-[90%] rounded-xl bg-skin-page-forground-hover"></div>
+      <div
+        className={`absolute z-0 h-[0.1rem] ${
+          noPaddingX ? 'w-full' : 'w-[90%]'
+        } rounded-xl bg-skin-page-forground-hover`}
+      ></div>
     </li>
   );
 };

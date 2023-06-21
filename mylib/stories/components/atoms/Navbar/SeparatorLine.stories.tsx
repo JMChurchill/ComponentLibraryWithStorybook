@@ -19,3 +19,6 @@ export const WithText: Story = {
 export const NoText: Story = {
   args: {},
 };
+export const NoPadding: Story = {
+  args: { noPaddingX: true },
+};
