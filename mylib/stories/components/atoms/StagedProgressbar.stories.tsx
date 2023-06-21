@@ -35,3 +35,9 @@ export const Complete: Story = {
     progress: 3,
   },
 };
+export const Single: Story = {
+  args: {
+    stages: ['first'],
+    progress: 1,
+  },
+};

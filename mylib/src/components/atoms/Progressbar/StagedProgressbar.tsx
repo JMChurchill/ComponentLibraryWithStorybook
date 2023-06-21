@@ -54,10 +54,14 @@ const Stage = ({
       style={
         active
           ? {
-              width: `calc(${width}% - ${0.75 / (numStages - 1)}rem)`,
+              width: `calc(${width}% - ${
+                numStages > 1 ? 0.75 / (numStages - 1) : 0
+              }rem)`,
             }
           : {
-              width: `calc(${width}% - ${0.75 / (numStages - 1)}rem)`,
+              width: `calc(${width}% - ${
+                numStages > 1 ? 0.75 / (numStages - 1) : 0
+              }rem)`,
               backgroundColor: 'gray',
             }
       }
