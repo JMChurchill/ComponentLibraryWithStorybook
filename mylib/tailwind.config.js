@@ -43,6 +43,7 @@ module.exports = {
           background: 'var(--color-page-background)',
           forground: 'var(--color-page-forground)',
           text: 'var(--color-text-base)',
+          'forground-hover': 'var(--color-page-forground-hover)',
         },
         button: {
           primary: 'var(--color-primary)',

@@ -24,7 +24,7 @@ const MultiSelect = ({
       value={value}
       placeholder={placeholder}
       isMulti
-      theme={theme => ({
+      theme={(theme) => ({
         ...theme,
         borderRadius: 6,
         colors: {
@@ -36,7 +36,7 @@ const MultiSelect = ({
           neutral0: 'var(--color-page-background)',
           neutral5: 'var(--color-page-background)',
           neutral10: 'var(--color-page-forground-hover)',
-          neutral20: 'var(--color-text-base)',
+          neutral20: 'var(--color-page-forground-hover)',
           neutral30: 'var(--color-text-secondary)',
           neutral40: 'var(--color-text-base)',
           neutral50: 'var(--color-text-base)',
@@ -47,21 +47,21 @@ const MultiSelect = ({
         },
       })}
       styles={{
-        control: styles => ({
+        control: (styles) => ({
           ...styles,
         }),
-        option: styles => ({
+        option: (styles) => ({
           ...styles,
           color: 'var(--color-text-base)',
         }),
-        multiValueRemove: styles => ({
+        multiValueRemove: (styles) => ({
           ...styles,
           color: 'var(--color-text-base)',
           height: 'fit-content',
           width: 'fit-content',
           padding: 0,
         }),
-        multiValue: styles => ({
+        multiValue: (styles) => ({
           ...styles,
           borderRadius: 6,
           justifyContent: 'center',

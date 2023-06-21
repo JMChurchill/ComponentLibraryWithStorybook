@@ -28,8 +28,8 @@ const DateInput = ({
   return (
     <div className="flex flex-col">
       <input
-        className={`rounded-md bg-skin-page-background px-2 py-1 text-skin-base shadow-inner outline-skin-primary
-         transition-all duration-75 focus:border-none focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-skin-primary focus:ring-0`}
+        className={`rounded-md border border-skin-forground-hover bg-skin-page-background px-2 py-1 text-skin-base shadow-inner outline-skin-primary
+         transition-all duration-75 focus:border-transparent focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-skin-primary focus:ring-0`}
         type="date"
         {...register(name, { required: required })}
         id="start"

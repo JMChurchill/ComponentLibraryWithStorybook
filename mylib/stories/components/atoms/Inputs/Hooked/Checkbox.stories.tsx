@@ -1,6 +1,8 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import RadioButton from '../../../../../src/components/atoms/Inputs/Hooked/RadioButtonHooked';
+import Card from '../../../../../src/components/atoms/Cards/Card';
+import NestedCard from '../../../../../src/components/atoms/Cards/NestedCard';
 
 const meta: Meta<typeof RadioButton> = {
   title: 'Components/atoms/Inputs/Hooked/RadioButton',
@@ -53,4 +55,43 @@ type MultiStory = StoryObj<typeof MultipleRadioButton>;
 
 export const Multiple: MultiStory = {
   render: () => <MultipleRadioButton />,
+};
+
+export const OnCard: Story = {
+  decorators: [
+    (Story) => (
+      <Card>
+        <Story />
+      </Card>
+    ),
+  ],
+  args: {
+    register: regMock,
+    groupName: 'testCardGroup',
+    error: null,
+    name: 'RadioCardButton',
+    required: false,
+    value: 'true',
+    children: 'Default box',
+  },
+};
+export const OnNestedCard: Story = {
+  decorators: [
+    (Story) => (
+      <Card>
+        <NestedCard>
+          <Story />
+        </NestedCard>
+      </Card>
+    ),
+  ],
+  args: {
+    register: regMock,
+    groupName: 'testNestedGroup',
+    error: null,
+    name: 'RadioNestedButton',
+    required: false,
+    value: 'true',
+    children: 'Default box',
+  },
 };

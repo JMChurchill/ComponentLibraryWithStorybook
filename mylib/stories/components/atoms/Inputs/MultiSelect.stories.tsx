@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import MultiSelect from '../../../../src/components/atoms/Inputs/MultiSelect';
 
+import Card from '../../../../src/components/atoms/Cards/Card';
+import NestedCard from '../../../../src/components/atoms/Cards/NestedCard';
+
 const meta: Meta<typeof MultiSelect> = {
   title: 'Components/atoms/Inputs/MultiSelect',
   component: MultiSelect,
@@ -25,7 +28,7 @@ const MultiselectTemplate: Story = {
     }, [selectedValues]);
     return (
       <div>
-        {selectedValues?.map(v => (
+        {selectedValues?.map((v) => (
           <p>{v.label}</p>
         ))}
         <MultiSelect
@@ -45,7 +48,44 @@ export const Default: Story = {
   args: {
     name: 'people',
     placeholder: 'Select a person',
-    options: people.map(name => {
+    options: people.map((name) => {
+      return { value: name.id, label: name.name };
+    }),
+  },
+};
+
+export const OnCard: Story = {
+  decorators: [
+    (Story) => (
+      <Card>
+        <Story />
+      </Card>
+    ),
+  ],
+  ...MultiselectTemplate,
+  args: {
+    name: 'people',
+    placeholder: 'Select a person',
+    options: people.map((name) => {
+      return { value: name.id, label: name.name };
+    }),
+  },
+};
+export const OnNestedCard: Story = {
+  decorators: [
+    (Story) => (
+      <Card>
+        <NestedCard scrollable={false}>
+          <Story />
+        </NestedCard>
+      </Card>
+    ),
+  ],
+  ...MultiselectTemplate,
+  args: {
+    name: 'people',
+    placeholder: 'Select a person',
+    options: people.map((name) => {
       return { value: name.id, label: name.name };
     }),
   },

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import DateInput from '../../../../src/components/atoms/Inputs/DateInput';
+import Card from '../../../../src/components/atoms/Cards/Card';
+import NestedCard from '../../../../src/components/atoms/Cards/NestedCard';
 
 const meta: Meta<typeof DateInput> = {
   title: 'Components/atoms/Inputs/DateInput',
@@ -65,6 +67,35 @@ export const minMax: Story = {
 };
 export const Error: Story = {
   ...DateInputTemplate,
+  args: {
+    name: 'dateSel',
+  },
+};
+
+export const OnCard: Story = {
+  ...DateInputTemplate,
+  decorators: [
+    (Story) => (
+      <Card>
+        <Story />
+      </Card>
+    ),
+  ],
+  args: {
+    name: 'dateSel',
+  },
+};
+export const OnNestedCard: Story = {
+  ...DateInputTemplate,
+  decorators: [
+    (Story) => (
+      <Card>
+        <NestedCard>
+          <Story />
+        </NestedCard>
+      </Card>
+    ),
+  ],
   args: {
     name: 'dateSel',
   },

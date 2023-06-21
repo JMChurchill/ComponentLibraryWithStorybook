@@ -2,6 +2,8 @@ import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import MultiSelect from '../../../../../src/components/atoms/Inputs/Hooked/MultiSelectHooked';
 import { useForm } from 'react-hook-form';
+import Card from '../../../../../src/components/atoms/Cards/Card';
+import NestedCard from '../../../../../src/components/atoms/Cards/NestedCard';
 
 const meta: Meta<typeof MultiSelect> = {
   title: 'Components/atoms/Inputs/Hooked/MultiSelect',
@@ -35,7 +37,7 @@ const MultiSelectTemplate = () => {
       <MultiSelect
         control={control}
         name={'name'}
-        options={names.map(name => {
+        options={names.map((name) => {
           return { value: name.id, label: name.name };
         })}
       />
@@ -46,5 +48,28 @@ const MultiSelectTemplate = () => {
 type MultiStory = StoryObj<typeof MultiSelectTemplate>;
 
 export const Multiple: MultiStory = {
+  render: () => <MultiSelectTemplate />,
+};
+
+export const OnCard: Story = {
+  decorators: [
+    (Story) => (
+      <Card>
+        <Story />
+      </Card>
+    ),
+  ],
+  render: () => <MultiSelectTemplate />,
+};
+export const OnNestedCard: Story = {
+  decorators: [
+    (Story) => (
+      <Card>
+        <NestedCard scrollable={false}>
+          <Story />
+        </NestedCard>
+      </Card>
+    ),
+  ],
   render: () => <MultiSelectTemplate />,
 };

@@ -1,9 +1,11 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import DropDownInput from '../../../../../src/components/atoms/Inputs/Hooked/DropDownHooked';
+import Card from '../../../../../src/components/atoms/Cards/Card';
+import NestedCard from '../../../../../src/components/atoms/Cards/NestedCard';
 
 const meta: Meta<typeof DropDownInput> = {
-  title: 'Components/atoms/Inputs/Hooked/DropdownInput',
+  title: 'Components/atoms/Inputs/Hooked/Dropdown',
   component: DropDownInput,
   argTypes: {},
 };
@@ -49,5 +51,38 @@ export const Error: Story = {
     name: 'drop',
     options: [{ value: '1', label: 'opt 1' }],
     error: true,
+  },
+};
+
+export const OnCard: Story = {
+  decorators: [
+    (Story) => (
+      <Card>
+        <Story />
+      </Card>
+    ),
+  ],
+  args: {
+    register: regMock,
+    required: false,
+    name: 'drop',
+    options: [{ value: '1', label: 'opt 1' }],
+  },
+};
+export const OnNestedCard: Story = {
+  decorators: [
+    (Story) => (
+      <Card>
+        <NestedCard>
+          <Story />
+        </NestedCard>
+      </Card>
+    ),
+  ],
+  args: {
+    register: regMock,
+    required: false,
+    name: 'drop',
+    options: [{ value: '1', label: 'opt 1' }],
   },
 };

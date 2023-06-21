@@ -1,6 +1,8 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import DateInput from '../../../../../src/components/atoms/Inputs/Hooked/DateInputHooked';
+import Card from '../../../../../src/components/atoms/Cards/Card';
+import NestedCard from '../../../../../src/components/atoms/Cards/NestedCard';
 
 const meta: Meta<typeof DateInput> = {
   title: 'Components/atoms/Inputs/Hooked/DateInput',
@@ -46,4 +48,27 @@ export const minMax: Story = {
 };
 export const Error: Story = {
   args: { register: regMock, required: false, name: 'dateSel', error: true },
+};
+
+export const OnCard: Story = {
+  decorators: [
+    (Story) => (
+      <Card>
+        <Story />
+      </Card>
+    ),
+  ],
+  args: { register: regMock, required: false, name: 'dateSel' },
+};
+export const OnNestedCard: Story = {
+  decorators: [
+    (Story) => (
+      <Card>
+        <NestedCard>
+          <Story />
+        </NestedCard>
+      </Card>
+    ),
+  ],
+  args: { register: regMock, required: false, name: 'dateSel' },
 };

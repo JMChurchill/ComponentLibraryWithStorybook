@@ -27,24 +27,24 @@ const TextInput = ({
     return (
       <div className="w-full">
         <input
-          className={`flex w-full flex-col rounded-md border-none bg-skin-page-background px-2 py-1 text-skin-base shadow-inner
-          outline-offset-0 transition-all duration-75 focus:border-none focus:outline focus:outline-2 focus:outline-offset-2
-          focus:outline-skin-primary focus:ring-0
+          className={`flex w-full flex-col rounded-md border border-skin-forground-hover bg-skin-page-background px-2 py-1
+          text-skin-base shadow-inner outline-offset-0 transition-all duration-75 focus:border-transparent focus:outline
+          focus:outline-2 focus:outline-offset-2 focus:outline-skin-primary focus:ring-0
           `}
           placeholder={placeholder}
           name={name}
           id={name}
           type={password ? 'password' : 'text'}
           value={value}
-          onChange={e => setValue(e.target.value)}
+          onChange={(e) => setValue(e.target.value)}
         />
       </div>
     );
   return (
     <div className="w-full">
       <textarea
-        className={`flex w-full flex-col rounded-md border-none bg-skin-page-background px-2 py-1 text-skin-base shadow-inner
-        outline-offset-0 transition-all duration-75 focus:border-none focus:outline focus:outline-2 focus:outline-offset-2
+        className={`flex w-full flex-col rounded-md border border-skin-forground-hover bg-skin-page-background px-2 py-1 text-skin-base shadow-inner
+        outline-offset-0 transition-all duration-75 focus:border-transparent focus:outline focus:outline-2 focus:outline-offset-2
           focus:outline-skin-primary focus:ring-0`}
         placeholder={placeholder}
         rows={5}
