@@ -56,6 +56,23 @@ export const Error: Story = {
     placeholder: 'default input',
   },
 };
+
+export const AdditionalErrorMessage: Story = {
+  args: {
+    register: regMock,
+    error: false,
+    name: 'testInput',
+    required: false,
+    multiline: false,
+    placeholder: 'default input',
+    additiontalErrorMessages: [
+      {
+        isShowing: true,
+        errorMessage: 'First name cannot exceed 150 characters',
+      },
+    ],
+  },
+};
 export const MultilineError: Story = {
   args: {
     register: regMock,

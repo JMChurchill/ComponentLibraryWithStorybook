@@ -1,4 +1,11 @@
-import React, { ReactNode } from 'react';
+import React, { useEffect, useState } from 'react';
+import InputErrorMessageContainer from '../ErrorMessage/InputErrorMessageContainer';
+import InputErrorMessage from '../ErrorMessage/InputErrorMessage';
+
+type AdditionalErrorMessageType = {
+  isShowing: boolean;
+  errorMessage: string;
+};
 
 type TextInputProps = {
   /** Displayed when there's no value in the input field */
@@ -15,8 +22,9 @@ type TextInputProps = {
   error: any;
   /** Hides the entered text  */
   password?: boolean;
-  /** Extra error messages */
-  additiontalErrorMessages?: ReactNode;
+  /** Extra error messages - last error message will be displayed*/
+  additiontalErrorMessages?: AdditionalErrorMessageType[];
+  // additiontalErrorMessages?: ReactNode;
 };
 
 const TextInputHooked = ({
@@ -29,9 +37,21 @@ const TextInputHooked = ({
   password = false,
   additiontalErrorMessages,
 }: TextInputProps) => {
-  const errorStyle = {
-    borderLeft: '3px solid red',
-  };
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+  useEffect(() => {
+    let tempErrorMessage: string | null = null;
+    if (additiontalErrorMessages) {
+      additiontalErrorMessages.map((eM) => {
+        if (eM.isShowing === true) tempErrorMessage = eM.errorMessage;
+      });
+    }
+    if (tempErrorMessage === null && error)
+      tempErrorMessage = 'This field is required';
+
+    setErrorMessage(tempErrorMessage);
+  }, [error, additiontalErrorMessages]);
+
   if (!multiline)
     return (
       <div className="w-full">
@@ -40,31 +60,36 @@ const TextInputHooked = ({
             name,
             typeof required === 'boolean' ? { required: required } : required
           )}
-          style={error ? errorStyle : null}
-          className={`flex w-full flex-col rounded-md border-none bg-skin-page-background px-2 py-1 text-skin-base shadow-inner
-          outline-offset-0 transition-all duration-75 focus:border-none focus:outline focus:outline-2 focus:outline-offset-2
-          focus:outline-skin-primary focus:ring-0
+          className={`flex w-full flex-col rounded-md border bg-skin-page-background px-2 py-1 text-skin-base shadow-inner
+          outline-offset-0 transition-all duration-75 focus:border-transparent focus:outline focus:outline-2 focus:outline-offset-2
+          focus:outline-skin-primary focus:ring-0 ${
+            errorMessage
+              ? 'border-2 border-red-500'
+              : 'border-skin-forground-hover'
+          }
           `}
           placeholder={placeholder}
           name={name}
           id={name}
           type={password ? 'password' : 'text'}
         />
-        <div>
-          {error && (
-            <span className="text-red-600">This field is required</span>
+        <InputErrorMessageContainer>
+          {errorMessage && (
+            <InputErrorMessage>{errorMessage}</InputErrorMessage>
           )}
-          {additiontalErrorMessages}
-        </div>
+        </InputErrorMessageContainer>
       </div>
     );
   return (
     <div className="w-full">
       <textarea
-        style={error ? errorStyle : null}
         className={`flex w-full flex-col rounded-md border border-skin-forground-hover bg-skin-page-background px-2 py-1 text-skin-base shadow-inner
         outline-offset-0 transition-all duration-75 focus:border-transparent focus:outline focus:outline-2 focus:outline-offset-2
-          focus:outline-skin-primary focus:ring-0`}
+          focus:outline-skin-primary focus:ring-0 ${
+            errorMessage
+              ? 'border-2 border-red-500'
+              : 'border-skin-forground-hover'
+          }`}
         placeholder={placeholder}
         rows="5"
         cols="40"
@@ -74,10 +99,9 @@ const TextInputHooked = ({
           typeof required === 'boolean' ? { required: required } : required
         )}
       ></textarea>
-      <div>
-        {error && <span className="text-red-600">This field is required</span>}
-        {additiontalErrorMessages}
-      </div>
+      <InputErrorMessageContainer>
+        {errorMessage && <InputErrorMessage>{errorMessage}</InputErrorMessage>}
+      </InputErrorMessageContainer>
     </div>
   );
 };

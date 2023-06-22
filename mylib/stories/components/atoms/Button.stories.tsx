@@ -59,3 +59,34 @@ export const IconBefore: Story = {
     position: 'before',
   },
 };
+
+export const Loading: Story = {
+  args: {
+    variant: 'primary',
+    children: 'button text',
+    isLoading: true,
+  },
+};
+export const LoadingSecondary: Story = {
+  args: {
+    variant: 'secondary',
+    children: 'button text',
+    isLoading: true,
+  },
+};
+export const LoadingIcon: Story = {
+  args: {
+    variant: 'secondary',
+    children: 'button text',
+    isLoading: true,
+    icon: IoAdd,
+    position: 'before',
+  },
+};
+export const Disabled: Story = {
+  args: {
+    variant: 'secondary',
+    children: 'button text',
+    disabled: true,
+  },
+};
