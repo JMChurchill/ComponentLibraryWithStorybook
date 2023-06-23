@@ -14,7 +14,7 @@ export default meta;
 type Story = StoryObj<typeof DateInput>;
 
 const DateInputTemplate: Story = {
-  render: ({ name, max, min, ...args }) => {
+  render: ({ name, max, min,error, ...args }) => {
     const [value, setValue] = useState<string | undefined>();
 
     return (
@@ -28,6 +28,7 @@ const DateInputTemplate: Story = {
           setValue={setValue}
           max={max}
           min={min}
+          error={error}
         />
       </div>
     );
@@ -40,6 +41,7 @@ export const Default: Story = {
     name: 'dateSel',
   },
 };
+
 export const min: Story = {
   ...DateInputTemplate,
   args: {
@@ -69,6 +71,7 @@ export const Error: Story = {
   ...DateInputTemplate,
   args: {
     name: 'dateSel',
+    error: true,
   },
 };
 

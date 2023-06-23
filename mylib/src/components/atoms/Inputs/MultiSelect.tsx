@@ -7,6 +7,7 @@ type MultiSelectProps = {
   options: any;
   value: string;
   setValue: (value: any) => void;
+  error?: boolean;
 };
 
 const MultiSelect = ({
@@ -15,6 +16,7 @@ const MultiSelect = ({
   options,
   value,
   setValue,
+  error = false,
 }: MultiSelectProps) => {
   return (
     <ReactSelect
@@ -47,10 +49,17 @@ const MultiSelect = ({
         },
       })}
       styles={{
-        control: (styles) => ({
-          ...styles,
-        }),
+        control: (styles) =>
+          error
+            ? { ...styles, borderColor: 'rgb(239 68 68)', borderWidth: '2px' }
+            : {
+                ...styles,
+              },
         option: (styles) => ({
+          ...styles,
+          color: 'var(--color-text-base)',
+        }),
+        dropdownIndicator: (styles) => ({
           ...styles,
           color: 'var(--color-text-base)',
         }),

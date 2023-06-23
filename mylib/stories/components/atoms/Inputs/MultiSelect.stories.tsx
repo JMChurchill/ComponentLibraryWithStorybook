@@ -21,7 +21,7 @@ const people = [
 ];
 
 const MultiselectTemplate: Story = {
-  render: ({ name, options, placeholder, ...args }) => {
+  render: ({ name, options, placeholder, error = false, ...args }) => {
     const [selectedValues, setSelectedValues] = useState<any>([]);
     useEffect(() => {
       console.log(selectedValues);
@@ -37,6 +37,7 @@ const MultiselectTemplate: Story = {
           value={selectedValues}
           setValue={setSelectedValues}
           options={options}
+          error={error}
         />
       </div>
     );
@@ -51,6 +52,17 @@ export const Default: Story = {
     options: people.map((name) => {
       return { value: name.id, label: name.name };
     }),
+  },
+};
+export const Error: Story = {
+  ...MultiselectTemplate,
+  args: {
+    name: 'people',
+    placeholder: 'Select a person',
+    options: people.map((name) => {
+      return { value: name.id, label: name.name };
+    }),
+    error: true,
   },
 };
 

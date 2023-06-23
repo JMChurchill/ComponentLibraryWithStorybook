@@ -43,6 +43,7 @@ export const Error: Story = {
     name: 'testInput',
     multiline: false,
     placeholder: 'default input',
+    error: true,
   },
 };
 export const MultilineError: Story = {
@@ -110,5 +111,21 @@ export const OnNestedCardMultiline: Story = {
     name: 'testInput',
     multiline: true,
     placeholder: 'multiline input',
+  },
+};
+
+export const OnCardError: Story = {
+  decorators: [
+    (Story) => (
+      <Card>
+        <Story />
+      </Card>
+    ),
+  ],
+  args: {
+    name: 'testInput',
+    multiline: false,
+    placeholder: 'default input',
+    error: true,
   },
 };

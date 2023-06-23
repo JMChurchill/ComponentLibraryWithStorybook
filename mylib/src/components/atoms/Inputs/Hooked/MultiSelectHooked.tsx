@@ -54,10 +54,21 @@ const MultiSelectHooked = ({
               },
             })}
             styles={{
-              control: (styles) => ({
-                ...styles,
-              }),
+              control: (styles) =>
+                errors
+                  ? {
+                      ...styles,
+                      borderColor: 'rgb(239 68 68)',
+                      borderWidth: '2px',
+                    }
+                  : {
+                      ...styles,
+                    },
               option: (styles) => ({
+                ...styles,
+                color: 'var(--color-text-base)',
+              }),
+              dropdownIndicator: (styles) => ({
                 ...styles,
                 color: 'var(--color-text-base)',
               }),
@@ -77,72 +88,6 @@ const MultiSelectHooked = ({
                 padding: '0 0.5rem',
               }),
             }}
-            // styles={{
-            //   control: (styles, state) => ({
-            //     ...styles,
-            //     backgroundColor: 'var(--color-page-background)',
-            //     borderColor: state.isFocused
-            //       ? 'var(--color-primary)'
-            //       : 'var(--color-page-background)',
-            //     ':hover': {
-            //       borderColor: 'var(--color-primary)',
-            //     },
-            //     ':active': {
-            //       outlineWidth: '0',
-            //       borderWidth: '10rem',
-            //     },
-            //   }),
-            //   clearIndicator: styles => ({
-            //     ...styles,
-            //     ':hover': {
-            //       color: 'red',
-            //       cursor: 'pointer',
-            //     },
-            //   }),
-            //   menuList: styles => ({
-            //     ...styles,
-            //     backgroundColor: 'var(--color-page-background)',
-            //     borderRadius: '0.125rem',
-            //     color: 'var(--color-text-base)',
-            //   }),
-            //   option: styles => ({
-            //     ...styles,
-            //     backgroundColor: 'var(--color-page-background)',
-            //     color: 'var(--color-text-base)',
-            //     ':hover': {
-            //       backgroundColor: 'var(--color-page-forground-hover)',
-            //     },
-            //   }),
-            //   multiValue: styles => ({
-            //     ...styles,
-            //     backgroundColor: 'var(--color-page-forground)',
-            //     display: 'flex',
-            //     alignItems: 'center',
-            //     color: 'var(--color-text-base)',
-            //     gap: '0.25rem',
-            //   }),
-            //   multiValueLabel: styles => {
-            //     return {
-            //       ...styles,
-            //       color: 'var(--color-text-base)',
-            //     };
-            //   },
-            //   multiValueRemove: styles => ({
-            //     ...styles,
-            //     borderRadius: '100%',
-            //     padding: 'auto',
-            //     width: '1.5rem',
-            //     height: '1.5rem',
-            //     fontSize: '1rem',
-            //     display: 'flex',
-            //     alignItems: 'center',
-            //     justifyContent: 'center',
-            //     ':hover': {
-            //       backgroundColor: 'var(--color-page-forground-hover-hover)',
-            //       color: 'red',
-            //     },
-            //   }),
-            // }}
           />
         )}
       />

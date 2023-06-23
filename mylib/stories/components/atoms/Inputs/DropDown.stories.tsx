@@ -14,7 +14,7 @@ export default meta;
 type Story = StoryObj<typeof DropDown>;
 
 const DropdownTemplate: Story = {
-  render: ({ name, options, ...args }) => {
+  render: ({ name, options, error = false, ...args }) => {
     const [value, setValue] = useState('');
 
     return (
@@ -25,6 +25,7 @@ const DropdownTemplate: Story = {
           value={value}
           setValue={setValue}
           options={options}
+          error={error}
         />
       </div>
     );
@@ -62,6 +63,7 @@ export const Error: Story = {
   args: {
     name: 'drop',
     options: [{ value: '1', label: 'opt 1' }],
+    error: true,
   },
 };
 
