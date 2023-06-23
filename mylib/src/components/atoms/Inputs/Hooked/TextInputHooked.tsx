@@ -61,8 +61,9 @@ const TextInputHooked = ({
             typeof required === 'boolean' ? { required: required } : required
           )}
           className={`flex w-full flex-col rounded-md border bg-skin-page-background px-2 py-1 text-skin-base shadow-inner
-          outline-offset-0 transition-all duration-75 focus:border-transparent focus:outline focus:outline-2 focus:outline-offset-2
-          focus:outline-skin-primary focus:ring-0 ${
+          outline-offset-0 transition-all duration-75 
+          hover:outline hover:outline-1 hover:outline-skin-base
+          focus:border-transparent focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-skin-primary focus:ring-0 ${
             errorMessage
               ? 'border-2 border-red-500'
               : 'border-skin-forground-hover'

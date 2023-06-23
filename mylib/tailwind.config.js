@@ -56,6 +56,8 @@ module.exports = {
       outlineColor: {
         skin: {
           primary: 'var(--color-primary)',
+          base: 'var(--color-text-base)',
+          secondary: 'var(--color-text-secondary)',
         },
       },
       transitionDuration: {
