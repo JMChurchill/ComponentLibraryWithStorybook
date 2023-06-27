@@ -13,6 +13,8 @@ const ThemeProvider = ({ children }: ThemeProvider) => {
     if (theme) {
       const {
         primary,
+        primaryLight,
+        primaryDark,
         primaryTransparent,
         backgroundColor,
         forgroundColor,
@@ -27,6 +29,14 @@ const ThemeProvider = ({ children }: ThemeProvider) => {
         textSecondary
       );
       document.documentElement.style.setProperty('--color-primary', primary);
+      document.documentElement.style.setProperty(
+        '--color-primary-dark',
+        primaryDark
+      );
+      document.documentElement.style.setProperty(
+        '--color-primary-light',
+        primaryLight
+      );
       document.documentElement.style.setProperty(
         '--color-primary-transparent',
         primaryTransparent
