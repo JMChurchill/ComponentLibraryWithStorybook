@@ -13,6 +13,7 @@
     --color-primary: hsl(350, 79%, 57%);
     --color-primary-transparent: hsla(350, 79%, 57%, 0.7);
     --color-primary-dark: hsl(350, 79%, 47%);
+    --color-primary-light: hsl(350, 79%, 67%);
     --color-page-background: rgb(247, 247, 247);
     --color-page-forground: white;
     --color-page-forground-hover: rgb(243, 243, 243);

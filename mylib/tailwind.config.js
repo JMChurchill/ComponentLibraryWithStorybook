@@ -22,6 +22,7 @@ module.exports = {
           primary: 'var(--color-primary)',
           'primary-transparent': 'var(--color-primary-transparent)',
           'primary-dark': 'var(--color-primary-dark)',
+          'primary-light': 'var(--color-primary-light)',
           'page-background': 'var(--color-page-background)',
           'page-forground': 'var(--color-page-forground)',
           'page-forground-hover': 'var(--color-page-forground-hover)',

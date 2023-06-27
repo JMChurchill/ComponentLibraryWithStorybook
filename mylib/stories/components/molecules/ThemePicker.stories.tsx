@@ -10,7 +10,7 @@ const meta: Meta<typeof ThemePicker> = {
   component: ThemePicker,
   argTypes: {},
   decorators: [
-    Story => {
+    (Story) => {
       return (
         <Card>
           <h2>Themes</h2>
@@ -34,6 +34,8 @@ export const Default: Story = {
           id: 1,
           name: 'Default',
           primary: 'hsl(350, 79%, 57%)',
+          primaryDark: 'hsl(350, 79%, 47%)',
+          primaryLight: 'hsl(350, 79%, 67%)',
           primaryTransparent: 'hsla(350, 79%, 57%, 0.7)',
           backgroundColor: '#0d1117',
           forgroundColor: 'hsl(214, 22%, 13%)',
@@ -48,6 +50,8 @@ export const Default: Story = {
           id: 2,
           name: 'Light',
           primary: 'hsl(350, 79%, 57%)',
+          primaryDark: 'hsl(350, 79%, 47%)',
+          primaryLight: 'hsl(350, 79%, 67%)',
           primaryTransparent: 'hsla(350, 79%, 57%, 0.7)',
           backgroundColor: 'rgb(247, 247, 247)',
           forgroundColor: 'white',
@@ -62,6 +66,8 @@ export const Default: Story = {
           id: 3,
           name: 'Classic',
           primary: '#40a630',
+          primaryDark: 'hsl(112, 55%, 32%)',
+          primaryLight: 'hsl(112, 55%, 52%)',
           primaryTransparent: 'hsl(112, 55%, 42%, 0.7)',
           backgroundColor: '#252526',
           forgroundColor: 'hsl(240, 3%, 25%)',
@@ -76,6 +82,8 @@ export const Default: Story = {
           id: 4,
           name: 'My Aardman',
           primary: '#3b88f1',
+          primaryDark: 'hsl(215, 87%, 49%)',
+          primaryLight: 'hsl(215, 87%, 69%)',
           primaryTransparent: 'hsl(215, 87%, 59%, 0.7)',
           backgroundColor: '#002b36',
           forgroundColor: '#073642',

@@ -15,10 +15,12 @@ const ThemeItem = ({
     id,
     name,
     primary,
+    primaryDark,
+    primaryLight,
     backgroundColor,
     forgroundColor,
     // forgroundHoverColor,
-    // forgroundHoverHoverColor,
+    forgroundHoverHoverColor,
     textBase,
     textSecondary,
   } = theme;
@@ -48,6 +50,20 @@ const ThemeItem = ({
           <div
             className="h-6 w-10 rounded-md"
             style={{ backgroundColor: primary }}
+          ></div>
+          <div>
+            <div
+              className="h-full w-[0.1rem]"
+              style={{ backgroundColor: forgroundHoverHoverColor }}
+            ></div>
+          </div>
+          <div
+            className="h-6 w-10 rounded-md"
+            style={{ backgroundColor: primaryDark }}
+          ></div>
+          <div
+            className="h-6 w-10 rounded-md"
+            style={{ backgroundColor: primaryLight }}
           ></div>
         </div>
       </div>

@@ -10,6 +10,8 @@ export type ThemeType = {
   name: string;
   primary: string;
   primaryTransparent: string;
+  primaryDark: string;
+  primaryLight: string;
   backgroundColor: string;
   forgroundColor: string;
   forgroundHoverColor: string;
@@ -29,6 +31,8 @@ const ThemePicker = ({ children }: ThemePickerProps) => {
       const {
         primary,
         primaryTransparent,
+        primaryDark,
+        primaryLight,
         backgroundColor,
         forgroundColor,
         forgroundHoverColor,
@@ -45,6 +49,14 @@ const ThemePicker = ({ children }: ThemePickerProps) => {
       document.documentElement.style.setProperty(
         '--color-primary-transparent',
         primaryTransparent
+      );
+      document.documentElement.style.setProperty(
+        '--color-primary-dark',
+        primaryDark
+      );
+      document.documentElement.style.setProperty(
+        '--color-primary-light',
+        primaryLight
       );
       document.documentElement.style.setProperty(
         '--color-page-background',
@@ -71,7 +83,7 @@ const ThemePicker = ({ children }: ThemePickerProps) => {
 
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-      {Children.map(children, child => {
+      {Children.map(children, (child) => {
         if (React.isValidElement(child)) {
           return React.cloneElement(child as ReactElement<any>, {
             selectedTheme,
