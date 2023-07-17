@@ -9,30 +9,6 @@ import Button from '../../../src/components/atoms/Button';
 const meta: Meta<typeof Modal> = {
   title: 'Components/atoms/Modal',
   component: Modal,
-  // decorators: [
-  //   Story => {
-  //     const [showModal, setShowModal] = useState(false);
-  //     return (
-  //       <div>
-  //         <Button onClick={() => setShowModal(true)}>Show Modal</Button>
-  //         {showModal ? <p>showing</p> : <p>Not Showing</p>}
-  //         <Story
-  //           showModal={showModal}
-  //           onRequestClose={() => setShowModal(false)}
-  //         >
-  //           <h2>This is a modal!</h2>
-  //           <p>
-  //             it should be rendered in a ModalContainer (div with id of
-  //             "modal-root")
-  //           </p>
-  //           <div style={{ marginTop: '1rem' }}>
-  //             <Button onClick={() => setShowModal(false)}>Close</Button>
-  //           </div>
-  //         </Story>
-  //       </div>
-  //     );
-  //   },
-  // ],
 };
 export default meta;
 
@@ -62,11 +38,3 @@ const ModalTemplate = () => {
 export const Default: TemplateStory = {
   render: () => <ModalTemplate />,
 };
-
-// export const Default: Story = {
-//   args: {
-//     showModal: true,
-//     onRequestClose: () => {},
-//     children: <h1>testing</h1>,
-//   },
-// };
